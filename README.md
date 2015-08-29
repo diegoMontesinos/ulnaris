@@ -1,29 +1,24 @@
-# README #
+Ulnaris v1.0.0
+==============================
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Es una aplicación para presentaciones ejecutivas controladas por gestos hechos con el brazo. Estos gestos son capturados por el sensor [**Myo Gesture Control Armband**](https://www.myo.com/).
 
-### What is this repository for? ###
+Todo el control, y la lógica de las presentaciones están hechas con Javascript usando el framework para aplicaciones de escritorio escritas como Web: [**Node Webkit**](https://github.com/nwjs/nw.js/).
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+Esto nos permite que las presentaciones sean archivos HTML5 con estilo CSS. Con esto se aprovecha el potencial de Webkit para el render del contenido: video, animaciones, estilos, transiciones, etc. Además de tener a disposición los diversos módulos que existen para NodeJS.
 
-### How do I get set up? ###
+La intención del proyecto es crear una base para hacer varias presentaciones con distinto diseño y contenido. Así que no es una aplicación para crear presentaciones, sino para controlar presentaciones hechas con ciertas características.
+Para crear una nueva presentación, por lo tanto, se debe copiar este proyecto y modificar el contenido HTML que viene por default.
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
 
-### Contribution guidelines ###
+Presentaciones y diapositivas
+------------------------------
 
-* Writing tests
-* Code review
-* Other guidelines
+Cada presentación está conformada por una serie de diapositivas (*Slides*).
+Los *Slides* se deben de guardar en la carpeta.
 
-### Who do I talk to? ###
+Los gestos controlan:
 
-* Repo owner or admin
-* Other community or team contact
+* Cambios de dipositiva
+* Control de Video
+* Control de audio
