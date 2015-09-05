@@ -5,11 +5,16 @@
 	"author": "LAAd",
 	"main": "index.html",
 	"window": {
-		"title": "Charolas | Victoria",
-		"width": 1920,
-		"height": 1080,
-		"max_width": 1920,
-		"max_height": 1080
+		"title": "Ulnaris | LAAd",
+		"width": 2048,
+		"height": 768,
+		"max_width": 2048,
+		"max_height": 768,
+		"toolbar": false,
+		"frame": false,
+		"fullscreen": true,		
+		"always-on-top": true,
+		"kiosk": true
 	},
 	"dependencies": {
 		"myo": "^2.0.1"

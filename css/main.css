@@ -1,0 +1,51 @@
+
+/***************************
+ * ULNARIS MAIN STYLESHEET *
+ ***************************/
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #000;
+
+	zoom: 50%;
+}
+
+div#container-fluid {
+	height: 100%;
+}
+
+#impress-container {
+	width: 2048px;
+	height: 768px;
+	overflow: hidden;
+	margin: 0 auto;
+
+	-webkit-user-select: none;
+	-webkit-user-drag: none;
+}
+
+.step {
+	position: relative;
+	padding: 0;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+
+.impress-enabled .step {
+	margin: 0;
+	opacity: 0;
+	display: block;
+	transition: opacity 1s;
+}
+
+.impress-enabled .step.active {
+	opacity: 1;
+}
+
+.slide {
+	display: block;
+	width: 2048px;
+	height: 768px;
+	position: relative;
+}
