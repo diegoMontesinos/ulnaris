@@ -1,10 +1,20 @@
 
-$(document).ready(function () {
+var ulnaris;
+var slidesSequence = [
+	"intro",
+	"be-se-refiere"
+];
+
+function Main() {
 	require('nw.gui').Window.get().showDevTools();
 
+	ulnaris = new Ulnaris();
 	ulnaris.init({
-		slides: [
-			"cover"
-		]
+		slides: slidesSequence,
+		onError: function (error) {
+			console.log(error);
+		}
 	});
-});
+}
+
+$(document).ready(Main);

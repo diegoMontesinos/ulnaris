@@ -12,12 +12,7 @@
 		"max_height": 768,
 		"toolbar": false,
 		"frame": false,
-		"fullscreen": true,		
-		"always-on-top": true,
-		"kiosk": true
-	},
-	"dependencies": {
-		"myo": "^2.0.1"
+		"fullscreen": true
 	},
 	"repository": {
 		"type": "git",

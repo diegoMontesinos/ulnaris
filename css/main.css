@@ -8,7 +8,7 @@ body {
 	padding: 0;
 	background-color: #000;
 
-	zoom: 50%;
+	zoom: 66%;
 }
 
 div#container-fluid {
@@ -48,4 +48,46 @@ div#container-fluid {
 	width: 2048px;
 	height: 768px;
 	position: relative;
+}
+
+.ulnaris-title {
+	width: 100%;
+	padding-top: 10px;
+	padding-left: 10px;
+	font-size: 46px;
+	font-weight: bolder;
+
+	position: relative;
+	display: inline-block;
+}
+
+.ulnaris-content {
+	position: relative;
+	display: inline-block;
+	margin-top: 10px;
+}
+
+.ulnaris-list {
+	font-size: 30px;
+	list-style-image: url("../img/bullet.gif");
+	list-style-position: inside;
+}
+
+.ulnaris-list li {
+}
+
+.ulnaris-sublist {
+	list-style: none !important;
+}
+
+/*****************
+ * CUSTOM STYLES *
+ *****************/
+
+.slide-background-a {
+	background-color: #FFF;
+}
+
+#impress {
+	font-family: sans-serif, arial;
 }
