@@ -15,15 +15,14 @@ function Ulnaris () {
 		loadSlides(args.slides, function () {
 
 			// Creamos e iniciamos la comunicacion con el Myo
-			myoComm = new UlnarisMyo();
-			myoComm.init();
+			//myoComm = new UlnarisMyo();
+			//myoComm.init();
 
 			// Creamos el manejador de animaciones
 			animations = new UlnarisAnimation();
 
 			// Comenzamos con la presentación :D
 			impress().init();
-
 		}, args.onError);
 
 		// Cargamos los eventos relacionados con Impress

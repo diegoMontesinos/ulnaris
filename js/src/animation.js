@@ -1,13 +1,17 @@
 
 function UlnarisAnimation () {
 
-	this.afterInit = function (step, eventData) {
-		eventData.current.animationTimeouts = [];
-		eventData.current.animationCleanupWaiting = [];
-	};
+	// Animations
+	var animationTimeouts = [];
+	var animationCleanupWaiting = [];
 
-	this.applyStep = function (step, eventData) {
+	// Procesa un paso
+	document.addEventListener("impress:applyStep", function (evt) {
 
+		// Argumentos del evento
+		var step = evt.detail.step;
+		var eventData = evt.detail.eventData;
+		
 		// Leemos todas las animaciones de los elementos
 		var substepsData = {};
 		var substeps = [];
@@ -120,7 +124,62 @@ function UlnarisAnimation () {
 
 		substepsData.list = substepsInOrder;
 		$(step).data("substepsData", substepsData);
-	};
+	}, false);
+
+	// Setea un paso activo
+	document.addEventListener("impress:setActive", function (evt) {
+
+		// Argumentos del evento
+		var step = evt.detail.step;
+		var eventData = evt.detail.eventData;
+
+		// Obtenemos los datos de los subpasos
+		var substepsData = $(step).data("substepsData");
+		if(!substepsData) {
+			return;
+		}
+
+		if(eventData.substep === undefined) {
+			if(eventData.reason === "prev") {
+				eventData.substep = substepsData.list.length - 1;
+			} else {
+				eventData.substep = 0;
+			}
+		}
+
+		// Seteamos los timeouts
+		var substep = eventData.substep;
+		$.each(animationTimeouts, function (idx, timeout) {
+			clearTimeout(timeout);
+		});
+		animationTimeouts = [];
+
+		$.each(substepsData.list, function (idx, activeSubsteps) {
+			var applyHas = idx < substep;
+			var applyDo = idx <= substep;
+			$.each(activeSubsteps, function (idx, substep) {
+				if(substep.substep.info.hasClass) {
+					$(substep.substep.element)[(applyHas ? "add" : "remove") + "Class"](substep.substep.info.hasClass);
+				}
+
+				function applyIt() {
+					$(substep.substep.element).addClass(substep.substep.info.doClass);
+				}
+				if(applyDo && !applyHas && substep.delay && eventData.reason !== "prev") {
+					if(substep.substep.info.doClass) {
+						$(substep.substep.element).removeClass(substep.substep.info.doClass);
+						animationTimeouts.push(setTimeout(applyIt, substep.delay));
+					}
+				} else {
+					if(substep.substep.info.doClass) {
+						$(substep.substep.element)[(applyDo ? "add" : "remove") + "Class"](substep.substep.info.doClass);
+					}
+				}
+			});
+		});
+	}, false);
+
+	/*
 
 	this.unapplyStep = function (step, eventData) {
 
@@ -141,54 +200,6 @@ function UlnarisAnimation () {
 				});
 			});
 		}
-	};
-
-	this.setActive = function (step, eventData) {
-
-		// Obtenemos los datos de los subpasos
-		var substepsData = $(step).data("substepsData");
-		if(!substepsData) {
-			return;
-		}
-
-		if(eventData.substep === undefined) {
-			if(eventData.reason === "prev") {
-				eventData.substep = substepsData.list.length - 1;
-			} else {
-				eventData.substep = 0;
-			}
-		}
-
-		// Seteamos los timeouts
-		var substep = eventData.substep;
-		$.each(step.animationTimeouts, function (idx, timeout) {
-			clearTimeout(timeout);
-		});
-
-		step.animationTimeouts = [];
-		$.each(substepsData.list, function (idx, activeSubsteps) {
-			var applyHas = idx < substep;
-			var applyDo = idx <= substep;
-			$.each(activeSubsteps, function (idx, substep) {
-				if(substep.substep.info.hasClass) {
-					$(substep.substep.element)[(applyHas ? "add" : "remove") + "Class"](substep.substep.info.hasClass);
-				}
-
-				function applyIt() {
-					$(substep.substep.element).addClass(substep.substep.info.doClass);
-				}
-				if(applyDo && !applyHas && substep.delay && eventData.reason !== "prev") {
-					if(substep.substep.info.doClass) {
-						$(substep.substep.element).removeClass(substep.substep.info.doClass);
-						step.animationTimeouts.push(setTimeout(applyIt, substep.delay));
-					}
-				} else {
-					if(substep.substep.info.doClass) {
-						$(substep.substep.element)[(applyDo ? "add" : "remove") + "Class"](substep.substep.info.doClass);
-					}
-				}
-			});
-		});
 	};
 
 	this.setInactive = function (step, eventData) {
@@ -250,6 +261,7 @@ function UlnarisAnimation () {
 			};
 		}
 	};
+*/
 
 	function parseSubstepInfo (str) {
 
