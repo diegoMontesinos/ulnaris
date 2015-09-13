@@ -7,11 +7,13 @@ function Ulnaris () {
 
 			// Inicializamos Reveal para la presentación
 			Reveal.initialize({
-				controls: false,
-				progress: false,
-				fragments: true,
-				history: true,
-				center: true,
+				controls  : false,
+				progress  : false,
+				fragments : true,
+				history   : true,
+				center    : true,
+				width     : 2048,
+				height    : 768,
 				transition: 'concave',
 				dependencies: [
 					{ src: 'plugin/notes/notes.js', async: true }
@@ -45,7 +47,6 @@ function Ulnaris () {
 					linkCSS.href = cssFileName;
 					
 					domSlide.append(linkCSS);
-					console.log(linkCSS);
 				}
 
 				// Agregamos el contenido de la diapositiva a la presentacion
