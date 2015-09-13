@@ -1,13 +1,14 @@
-
 var ulnaris;
 var slidesSequence = [
-	"intro",
-	"be-se-refiere"
+	"intro"
 ];
 
-function Main() {
-	require('nw.gui').Window.get().showDevTools();
+function main (debug) {
+	if(debug) {
+		require('nw.gui').Window.get().showDevTools();
+	}
 
+	// Iniciamos Ulnaris
 	ulnaris = new Ulnaris();
 	ulnaris.init({
 		slides: slidesSequence,
@@ -16,5 +17,3 @@ function Main() {
 		}
 	});
 }
-
-$(document).ready(Main);
