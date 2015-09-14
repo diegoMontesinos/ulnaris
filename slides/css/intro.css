@@ -1,26 +1,32 @@
 
 img {
 	width: 100%;
-	height: 100%;
+	height: auto;
 }
 
-#intro div:nth-child(1) {
-	width: 220px;
-	height: 156px;
+#intro .step-container {
+	background: url(../../img/intro-background.png) 0 0 no-repeat;
+	-webkit-background-size: cover;
+}
+
+#intro .step-container div {
+	position: absolute;
+}
+
+#intro .step-container div:nth-child(1) {
+	width: 219px;
 	left: 368px;
-	top: 96px;
+	top: 90px;
 }
 
-#intro div:nth-child(2) {
+#intro .step-container div:nth-child(2) {
 	width: 558px;
-	height: 178px;
 	left: 368px;
-	top: 290px;
+	top: 284px;
 }
 
-#intro div:nth-child(3) {
+#intro .step-container div:nth-child(3) {
 	width: 722px;
-	height: 78px;
 	left: 292px;
-	top: 556px;
+	top: 550px;
 }

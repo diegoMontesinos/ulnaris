@@ -1,5 +1,70 @@
+
+/***************************
+ * ULNARIS MAIN STYLESHEET *
+ ***************************/
+
+@font-face {
+	font-family: 'helvetica-neue';
+	src: url('../fonts/HelveticaNeue-Light.woff') format('woff'),
+		 url('../fonts/HelveticaNeue-Light.otf')  format('opentype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'helvetica-neue-bold';
+	src: url('../fonts/HelveticaNeue-Bold.woff') format('woff'),
+		 url('../fonts/HelveticaNeue-Bold.otf')  format('opentype');
+	font-weight: bold;
+	font-style: bold;
+}
+
 body {
 	margin: 0;
 	padding: 0;
 	background-color: #000;
+	color: #FFF;
+}
+
+.step-container {
+	display: block;
+	width: 2048px;
+	height: 768px;
+	position: relative;
+	font-family: 'helvetica-neue' !important;
+}
+
+.ulnaris-title {
+	position: absolute;
+	top: 20px;
+	left: 0px;
+
+	font-size: 58px !important;
+	font-family: 'helvetica-neue-bold' !important;
+	text-align: left !important;
+}
+
+.ulnaris-content {
+	position: absolute;
+	left: 0px;
+	top: 156px;
+
+	text-align: left !important;
+}
+
+.ulnaris-list {
+	font-size: 46px !important;
+	list-style-position: inside;
+	text-align: justify !important;
+}
+
+.ulnaris-sublist {
+	list-style: none !important;
+	text-align: justify !important;
+	margin-left: 70px !important;
+}
+
+.ulnaris-list li,
+.ulnaris-sublist li {
+	margin-top: 8px !important;
 }
