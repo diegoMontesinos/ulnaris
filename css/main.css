@@ -54,11 +54,13 @@ body {
 }
 
 .ulnaris-list {
+	list-style: none;
 	margin-left: 20px !important;
 	text-align: justify !important;
 }
 
 .ulnaris-sublist {
+	font-size: 32px !important;
 	list-style: none !important;
 	text-align: justify !important;
 	margin-left: 80px !important;
@@ -67,6 +69,26 @@ body {
 .ulnaris-list li,
 .ulnaris-sublist li {
 	margin-top: 8px !important;
+}
+
+.ulnaris-list li:before {
+	float: left;
+	margin-top: 10px;
+	margin-right: 10px;
+
+	font-family: 'FontAwesome';
+	font-size: 18px !important;
+	color: #24badf;
+	content: '\f111';
+}
+
+.ulnaris-sublist li:before {
+	margin-top: 14px;
+
+	font-family: 'FontAwesome';
+	font-size: 18px !important;
+	color: #fff;
+	content: '\f068';
 }
 
 .logo-be {

@@ -13,6 +13,9 @@ function Ulnaris () {
 				history   : true,
 				center    : true,
 
+				autoSlide          : 1000,
+				autoSlideStoppable : false,
+
 				width     : 2048,
 				height    : 768,
 
@@ -20,6 +23,7 @@ function Ulnaris () {
 				//maxScale  : 1.0,
 
 				transition: 'concave',
+				transitionSpeed: 'slow',
 				dependencies: [
 					{ src: 'plugin/notes/notes.js', async: true }
 				]
