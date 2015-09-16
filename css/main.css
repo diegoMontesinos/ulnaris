@@ -37,34 +37,46 @@ body {
 .ulnaris-title {
 	position: absolute;
 	top: 20px;
-	left: 0px;
+	left: 20px;
 
-	font-size: 58px !important;
+	font-size: 70px !important;
 	font-family: 'helvetica-neue-bold' !important;
 	text-align: left !important;
 }
 
 .ulnaris-content {
 	position: absolute;
-	left: 0px;
-	top: 156px;
+	left: 20px;
+	top: 110px;
 
-	text-align: left !important;
+	font-size: 38px !important;
+	text-align: justify !important;
 }
 
 .ulnaris-list {
-	font-size: 46px !important;
-	list-style-position: inside;
+	margin-left: 20px !important;
 	text-align: justify !important;
 }
 
 .ulnaris-sublist {
 	list-style: none !important;
 	text-align: justify !important;
-	margin-left: 70px !important;
+	margin-left: 80px !important;
 }
 
 .ulnaris-list li,
 .ulnaris-sublist li {
 	margin-top: 8px !important;
+}
+
+.logo-be {
+	width: 110px;
+	height: 80px;
+	position: relative;
+	float: left;
+	background: url("../img/intro-be.png");
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	margin-top: -10px !important;
+	margin-right: 10px !important;
 }

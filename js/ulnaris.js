@@ -12,8 +12,13 @@ function Ulnaris () {
 				fragments : true,
 				history   : true,
 				center    : true,
+
 				width     : 2048,
 				height    : 768,
+
+				//minScale  : 1.0,
+				//maxScale  : 1.0,
+
 				transition: 'concave',
 				dependencies: [
 					{ src: 'plugin/notes/notes.js', async: true }
