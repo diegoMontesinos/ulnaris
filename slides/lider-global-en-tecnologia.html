@@ -7,20 +7,20 @@
 			<span>Lider Global en Tecnología y Cadena de Suministros</span>
 		</div>
 
-		<div id="lider-global-data" class="ulnaris-content" align="center">
+		<div id="lider-global-data" class="ulnaris-content" style="padding-left: 646px; margin-top: -34px;">
 		</div>
 	</div>
 </section>
 
 <script type="text/javascript">
 	(function() {
-		var diameter = 960,
+		var diameter = 720,
 		format = d3.format(",d"),
 		color = d3.scale.category20c();
 
 		var bubble = d3.layout.pack()
 		.sort(null)
-		.size([diameter, diameter])
+		.size([ diameter, diameter ])
 		.padding(1.5);
 
 		var svg = d3.select($("#lider-global-data")[0]).append("svg")
@@ -60,6 +60,7 @@
 			node.append("text")
 			.attr("dy", ".3em")
 			.style("text-anchor", "middle")
+			.style("font-size", "10px")
 			.text(function (d) {
 				return d.className.substring(0, d.r / 3);
 			});

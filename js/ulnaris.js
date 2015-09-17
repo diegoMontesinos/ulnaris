@@ -27,6 +27,8 @@ function Ulnaris () {
 					{ src: 'plugin/notes/notes.js', async: true }
 				]
 			});
+
+			Reveal.slide(2, 0, 0);
 		}, args.onError);
 	};
 
