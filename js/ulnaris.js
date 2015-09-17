@@ -23,7 +23,6 @@ function Ulnaris () {
 				//maxScale  : 1.0,
 
 				transition: 'concave',
-				transitionSpeed: 'slow',
 				dependencies: [
 					{ src: 'plugin/notes/notes.js', async: true }
 				]

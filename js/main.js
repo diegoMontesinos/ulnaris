@@ -1,7 +1,8 @@
 var ulnaris;
 var slidesSequence = [
 	"intro",
-	"be-se-refiere"
+	"be-se-refiere",
+	"lider-global-en-tecnologia"
 ];
 
 function main (debug) {
