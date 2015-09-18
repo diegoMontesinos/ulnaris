@@ -28,7 +28,7 @@ function Ulnaris () {
 				]
 			});
 
-			Reveal.slide(2, 0, 0);
+			//Reveal.slide(2, 0, 0);
 		}, args.onError);
 	};
 

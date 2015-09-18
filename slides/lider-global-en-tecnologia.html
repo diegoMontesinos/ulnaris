@@ -1,5 +1,5 @@
 <!-- LIDER GLOBAL -->
-<section id="lider-global-en-tecnologia" data-background="#000" data-autoslide="0">
+<section id="lider-global-en-tecnologia" data-background="#000" data-autoslide="0" data-state="lider-global-state">
 	<div class="step-container">
 
 		<!-- TITULO -->
@@ -7,48 +7,73 @@
 			<span>Lider Global en Tecnología y Cadena de Suministros</span>
 		</div>
 
-		<div id="lider-global-data" class="ulnaris-content" style="padding-left: 646px; margin-top: -34px;">
+		<div id="lider-global-data" class="ulnaris-content" style="padding-left: 646px; margin-top: -88px;">
 		</div>
 	</div>
 </section>
 
 <script type="text/javascript">
-	(function() {
-		var diameter = 720,
-		format = d3.format(",d"),
-		color = d3.scale.category20c();
+	(function () {
 
+		// Variables de la viz
+		var diameter = 790;
+		var format = d3.format(",d");
+		var color = d3.scale.category20c();
+
+		// Plantilla de burbujas
 		var bubble = d3.layout.pack()
 		.sort(null)
 		.size([ diameter, diameter ])
 		.padding(1.5);
 
-		var svg = d3.select($("#lider-global-data")[0]).append("svg")
+		// Agregamos el nodo svg
+		var svg = d3.select("#lider-global-data").append("svg")
 		.attr("width", diameter)
 		.attr("height", diameter)
 		.attr("class", "bubble");
 
+		// Leemos los datos
 		d3.json("data/lider-global.json", function (error, root) {
 			if (error) {
 				console.log(error);
 				return;
 			}
 
+			// Nodos
 			var node = svg.selectAll(".node")
 			.data(bubble.nodes(classes(root)).filter(function (d) {
 				return !d.children;
-			}))
-			.enter().append("g")
+			}));
+
+			// Agregamos los nodos en el centro
+			node.enter().append("g")
 			.attr("class", "node")
 			.attr("transform", function (d) {
-				return "translate(" + d.x + "," + d.y + ")";
+				var radius = diameter / 2.0;
+				return "translate(" + radius + "," + radius + ")";
 			});
 
+			Reveal.addEventListener('lider-global-state', function() {
+
+				// Nodos
+				node.attr("transform", function (d) {
+					var radius = diameter / 2.0;
+					return "translate(" + radius + "," + radius + ")";
+				});
+
+				// Transicion a posicion
+				node.transition().delay(800).duration(1000).attr("transform", function (d) {
+					return "translate(" + d.x + "," + d.y + ")";
+				});
+			}, false );
+
+			// Ponemos los titulos
 			node.append("title")
 			.text(function (d) {
 				return d.className + ": " + format(d.value);
 			});
 
+			// Ponemos un circulo
 			node.append("circle")
 			.attr("r", function (d) {
 				return d.r;
@@ -57,25 +82,55 @@
 				return color(d.packageName);
 			});
 
+			// Texto
 			node.append("text")
-			.attr("dy", ".3em")
+			.attr("dy", "0.0em")
+			.style("fill", "#FFF")
+			.style("font-weight", "bold")
 			.style("text-anchor", "middle")
-			.style("font-size", "10px")
+			.attr("name", function (d) {
+				return d.packageName;
+			})
 			.text(function (d) {
-				return d.className.substring(0, d.r / 3);
+				return d.className;
+			});
+
+			node.selectAll("text")
+			.forEach(function (text) {
+				var t = text[0];
+				if($(t).attr("name") === "cluster") {
+					$(t).css({
+						"font-size" : "13px"
+					});
+					wrap(d3.select(t), 150);
+				} else {
+					$(t).css({
+						"font-size" : "24px"
+					});
+					wrap(d3.select(t), 300);
+				}
 			});
 		});
 
-		// Returns a flattened hierarchy containing all leaf nodes under the root.
-		function classes(root) {
+		// Ajustamos el frameElement
+		d3.select(self.frameElement).style("height", diameter + "px");
+
+		// Aplana las jerarquias en una sola.
+		function classes (root) {
 			var classes = [];
 
-			function recurse(name, node) {
+			function recurse (name, node) {
 				if (node.children) {
-					node.children.forEach(function (child) { recurse(node.name, child); });
+					node.children.forEach(function (child) {
+						recurse(node.name, child);
+					});
 				}
 				else {
-					classes.push({ packageName: name, className: node.name, value: node.size });
+					classes.push({
+						packageName : name,
+						className   : node.name,
+						value       : node.size
+					});
 				}
 			}
 
@@ -83,6 +138,29 @@
 			return { children: classes };
 		}
 
-		d3.select(self.frameElement).style("height", diameter + "px");
+		function wrap (text, width) {
+			text.each(function() {
+				var text = d3.select(this);
+		        var words = text.text().split(/\s+/).reverse();
+		        var word;
+		        var line = [];
+		        var lineNumber = 0;
+		        var lineHeight = 1.1;
+		        var y = text.attr("y");
+		        var dy = parseFloat(text.attr("dy"));
+		        var tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+
+				while (word = words.pop()) {
+					line.push(word);
+					tspan.text(line.join(" "));
+					if (tspan.node().getComputedTextLength() > width) {
+						line.pop();
+						tspan.text(line.join(" "));
+						line = [word];
+						tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+					}
+				}
+			});
+		}
 	})();
 </script>
