@@ -4,35 +4,35 @@ img {
 	height: auto;
 }
 
-#intro .step-container {
+#porque-be .step-container {
 	background: url(../../img/intro-background.png) 0 0 no-repeat;
 	-webkit-background-size: cover;
 }
 
-#intro .step-container div {
+#porque-be .step-container div {
 	position: absolute;
 }
 
-#intro .step-container div:nth-child(1) {
+#porque-be .step-container div:nth-child(1) {
 	width: 420px;
 	left: 200px;
 	top: 130px;
 }
 
-#intro .step-container div:nth-child(2) {
+#porque-be .step-container div:nth-child(2) {
 	width: 170px;
 	left: 200px;
 	top: 300px;
 }
 
-#intro .ulnaris-title {
-	width: 650px;
-	left: 220px;
+#porque-be .ulnaris-title {
+	width: 350px;
+	left: 0px;
 	top: 55px;
 }
 
-#intro .ulnaris-content {
-	font-size: 42vpx !important;
+#porque-be .ulnaris-content {
+	font-size: 42px !important;
 	width: 650px;
 	left: 220px;
 	top: 500px;
