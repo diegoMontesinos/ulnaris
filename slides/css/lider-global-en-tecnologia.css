@@ -1,0 +1,13 @@
+text {
+	font-weight: bold;
+	text-anchor: middle;
+	fill: #FFF;
+}
+
+text[name='cluster'] {
+	font-size: 13px;
+}
+
+text[name='flare'] {
+	font-size: 24px;
+}

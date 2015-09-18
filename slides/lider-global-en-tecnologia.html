@@ -53,6 +53,7 @@
 				return "translate(" + radius + "," + radius + ")";
 			});
 
+			// Cada vez que se muestra la diapositiva
 			Reveal.addEventListener('lider-global-state', function() {
 
 				// Nodos
@@ -85,9 +86,6 @@
 			// Texto
 			node.append("text")
 			.attr("dy", "0.0em")
-			.style("fill", "#FFF")
-			.style("font-weight", "bold")
-			.style("text-anchor", "middle")
 			.attr("name", function (d) {
 				return d.packageName;
 			})
@@ -97,17 +95,10 @@
 
 			node.selectAll("text")
 			.forEach(function (text) {
-				var t = text[0];
-				if($(t).attr("name") === "cluster") {
-					$(t).css({
-						"font-size" : "13px"
-					});
-					wrap(d3.select(t), 150);
+				if($(text[0]).attr("name") === "cluster") {
+					wrap(d3.select(text[0]), 200);
 				} else {
-					$(t).css({
-						"font-size" : "24px"
-					});
-					wrap(d3.select(t), 300);
+					wrap(d3.select(text[0]), 300);
 				}
 			});
 		});
