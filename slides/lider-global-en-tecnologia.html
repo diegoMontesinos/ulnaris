@@ -3,7 +3,7 @@
 	<div class="step-container">
 
 		<!-- TITULO -->
-		<div class="ulnaris-title">
+		<div class="ulnaris-title" style="top: 0px;">
 			<span>Lider Global en Tecnología y Cadena de Suministros</span>
 		</div>
 
@@ -68,12 +68,6 @@
 				});
 			}, false );
 
-			// Ponemos los titulos
-			node.append("title")
-			.text(function (d) {
-				return d.className + ": " + format(d.value);
-			});
-
 			// Ponemos un circulo
 			node.append("circle")
 			.attr("r", function (d) {
@@ -84,23 +78,7 @@
 			});
 
 			// Texto
-			node.append("text")
-			.attr("dy", "0.0em")
-			.attr("name", function (d) {
-				return d.packageName;
-			})
-			.text(function (d) {
-				return d.className;
-			});
-
-			node.selectAll("text")
-			.forEach(function (text) {
-				if($(text[0]).attr("name") === "cluster") {
-					wrap(d3.select(text[0]), 200);
-				} else {
-					wrap(d3.select(text[0]), 300);
-				}
-			});
+			node.call(putText);
 		});
 
 		// Ajustamos el frameElement
@@ -129,27 +107,20 @@
 			return { children: classes };
 		}
 
-		function wrap (text, width) {
-			text.each(function() {
-				var text = d3.select(this);
-		        var words = text.text().split(/\s+/).reverse();
-		        var word;
-		        var line = [];
-		        var lineNumber = 0;
-		        var lineHeight = 1.1;
-		        var y = text.attr("y");
-		        var dy = parseFloat(text.attr("dy"));
-		        var tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+		function putText (g) {
+			g.each(function (data) {
+				var titleData = data.className.split(";");
 
-				while (word = words.pop()) {
-					line.push(word);
-					tspan.text(line.join(" "));
-					if (tspan.node().getComputedTextLength() > width) {
-						line.pop();
-						tspan.text(line.join(" "));
-						line = [word];
-						tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
-					}
+				var str, dy, fsize;
+				for (var i = 0; i < titleData.length; i += 3) {
+					str   = titleData[i];
+					fsize = titleData[i + 1] + "px";
+					dy    = titleData[i + 2] + "em";
+
+					d3.select(this).append("text")
+					.style("font-size", fsize)
+					.attr("dy", dy)
+					.text(str);
 				}
 			});
 		}
