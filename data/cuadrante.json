@@ -1,0 +1,69 @@
+ "numDiapositiva": "13"
+	{ "concepto": "2010", "cifra": "5.5" }
+	{ "concepto": "2011", "cifra": "3.9" }
+	{ "concepto": "2012", "cifra": "3.9" }
+	{ "concepto": "2013", "cifra": "1.2" }
+	{ "concepto": "2014", "cifra": "2.2" }
+	{ "concepto": "2015", "cifraroja": "2.5" }
+	{ "concepto": "2016", "cifraroja": "3.1" }
+	{ "concepto": "2015", "cifra": "2.3" }
+	{ "concepto": "2016", "cifra": "3.0" }
+	{ "concepto": "2020", "cifra": "3.4" }
+	{ "promedio": "%GDP"}
+	{ "concepto": "2010", "cifra": "4.40" }
+	{ "concepto": "2011", "cifra": "3.82" }
+	{ "concepto": "2012", "cifra": "3.57" }
+	{ "concepto": "2013", "cifra": "3.75" }
+	{ "concepto": "2014", "cifra": "4.05" }
+	{ "concepto": "2015", "cifra": "2.86" }
+	{ "concepto": "2015", "cifraroja": "2.90" }
+    { "promedio": "Inflation"}
+    { "concepto": "ENE", "azul 2013": "-2%" }
+	{ "concepto": "FEB", "azul 2013": "-7%" }
+	{ "concepto": "MAR", "azul 2013": "-7%" }
+	{ "concepto": "MAR", "azul 2013": "-7%" }
+	{ "concepto": "ABR", "azul 2013": "-5%" }
+	{ "concepto": "MAY", "azul 2013": "-2%" }
+	{ "concepto": "JUN", "azul 2013": "0%" }
+	{ "concepto": "JUN", "azul 2013": "0%" }
+	{ "concepto": "JUN", "azul 2013": "0%" }
+	{ "concepto": "JUL", "azul 2013": "0%" }
+	{ "concepto": "AGO", "azul 2013": "1%" }
+	{ "concepto": "SEP", "azul 2013": "4%" }
+	{ "concepto": "OCT", "azul 2013": "5%" }
+	{ "concepto": "NOV", "azul 2013": "3%" }
+	{ "concepto": "DIC", "azul 2013": "8%" }
+	{ "concepto": "ENE", "amarillo 2014": "15%" }
+	{ "concepto": "FEB", "amarillo 2014": "21%" }
+	{ "concepto": "MAR", "amarillo 2014": "15%" }
+	{ "concepto": "ABR", "amarillo 2014": "16%" }
+	{ "concepto": "MAY", "amarillo 2014": "17%" }
+	{ "concepto": "JUN", "amarillo 2014": "15%" }
+	{ "concepto": "JUL", "amarillo 2014": "15%" }
+	{ "concepto": "AGO", "amarillo 2014": "15%" }
+	{ "concepto": "SEP", "amarillo 2014": "14%" }
+	{ "concepto": "OCT", "amarillo 2014": "13%" }
+	{ "concepto": "NOV", "amarillo 2014": "14%" }
+	{ "concepto": "DIC", "amarillo 2014": "9%" }
+	{ "concepto": "ENE", "cafe 2015": "24%" }
+	{ "concepto": "FEB", "cafe 2015": "14%" }
+	{ "concepto": "MAR", "cafe 2015": "17%" }
+	{ "concepto": "ABR", "cafe 2015": "14%" }
+	{ "concepto": "MAY", "cafe 2015": "13%" }
+	{ "concepto": "JUN", "cafe 2015": "11" }
+	{ "concepto": "JUL", "cafe 2015": "9" }
+    { "promedio": "Government Expense Annual growth rate"}
+    { "concepto": "2010", "cifra": "12.63" }
+	{ "concepto": "2011", "cifra": "12.43" }
+	{ "concepto": "2012", "cifra": "12.90" }
+	{ "concepto": "2013", "cifra": "12.81" }
+	{ "concepto": "2014", "cifra": "14.50" }
+	{ "concepto": "2015", "cifraroja": "16.35" }
+	{ "concepto": "2016", "cifraroja": "15.98" }
+	{ "concepto": "2015", "cifra": "15.60" }
+	{ "concepto": "2016", "cifra": "15.35" }
+    { "promedio": "Exchange Rate"}
+
+
+
+	{ "concepto": "DIC", "cafe": "8%" }
