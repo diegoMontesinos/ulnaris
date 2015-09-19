@@ -102,3 +102,12 @@ body {
 	margin-top: -10px !important;
 	margin-right: 10px !important;
 }
+
+#legals {
+	position: absolute;
+	top: 736px;
+	left: 910px;
+	z-index: 100;
+	font-family: 'helvetica-neue' !important;
+	font-size: 18px;
+}

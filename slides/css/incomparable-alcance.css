@@ -1,0 +1,20 @@
+
+#mapa-incomparable-alcance{
+	width: 1260px;
+	height: 628px;
+
+	position: absolute;
+	top: 80px;
+	left: calc(50% - 630px);
+}
+
+#incomparable-alcance img {
+	width: 100%;
+	height: 100%;
+}
+
+#circles-incomparable-alcance {
+	position: absolute;
+	top: 80px;
+	left: calc(50% - 630px);
+}

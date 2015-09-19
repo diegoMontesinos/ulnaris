@@ -6,7 +6,8 @@ var slidesSequence = [
 	"porque-be",
 	"be",
 	"ingram-micro-es",
-	"lider-global-en-tecnologia"
+	"lider-global-en-tecnologia",
+	"incomparable-alcance"
 ];
 
 function main (debug) {
