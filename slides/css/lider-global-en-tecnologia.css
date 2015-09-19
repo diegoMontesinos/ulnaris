@@ -1,13 +1,13 @@
-text {
+#lider-global-en-tecnologia text {
 	font-weight: bold;
 	text-anchor: middle;
 	fill: #FFF;
 }
 
-text[name='cluster'] {
+#lider-global-en-tecnologia text[name='cluster'] {
 	font-size: 13px;
 }
 
-text[name='flare'] {
+#lider-global-en-tecnologia text[name='flare'] {
 	font-size: 24px;
 }
