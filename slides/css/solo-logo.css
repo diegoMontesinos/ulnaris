@@ -1,0 +1,15 @@
+
+img {
+	width: 100%;
+	height: auto;
+}
+
+#solo-logo .step-container div {
+	position: absolute;
+}
+
+#solo-logo .step-container div:nth-child(1) {
+	width: 420px;
+	left: 814px;
+	top: 330px;
+}

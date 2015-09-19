@@ -1,8 +1,10 @@
 var ulnaris;
 var slidesSequence = [
+	"solo-logo",
 	"intro",
 	"porque-be",
-	"be-se-refiere",
+	"be",
+	"ingram-micro-es",
 	"lider-global-en-tecnologia"
 ];
 

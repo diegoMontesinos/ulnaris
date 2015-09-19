@@ -1,0 +1,91 @@
+	"numDiapositiva": "40"
+	{
+		"concepto": "servicio TIC y nube", "children": [ 
+			{"concepto": "Aportacion al crecimiento* 1S15", "cifra": "8.6"},
+			{"concepto": "Crecimiento 1S15", "cifra": "11.9%" }
+			]
+		}
+	{
+		"concepto": "Proveedores de Telecom", "children": [ 
+			{"concepto": "Aportacion al crecimiento* 1S15", "cifra": "0.8"},
+			{"concepto": "Crecimiento 1S15", "cifra": "11.4%" }
+			]
+		}
+    {
+		"concepto": "Proveedores de Servicios", "children": [ 
+			{"concepto": "Aportacion al crecimiento* 1S15", "cifra": "6.8"},
+			{"concepto": "Crecimiento 1S15", "cifra": "14.4%" }
+			]
+		}
+	{
+		"concepto": "Fabricantes", "children": [ 
+			{"concepto": "Aportacion al crecimiento* 1S15", "cifra": "1.84"},
+			{"concepto": "Crecimiento 1S15", "cifra": "5.8%" }
+			]
+		}
+    {
+		"concepto": "Canales", "children": [ 
+			{"concepto": "Aportacion al crecimiento* 1S15", "cifra": "2.5"},
+			{"concepto": "Crecimiento 1S15", "cifra": "17.1%" }
+			]
+		}
+    { "concepto": "Software", "cifra": "74%" }
+	{ "concepto": "AMS", "cifra": "21%" }
+	{ "concepto": "Aplicaciones en la nube", "cifra": "5%" }
+	{ "porcentaje": "13.6%"}
+	{ "promedio": "2014: $17,412"}
+	{ "concepto": "Software", "cifra": "72%" }
+	{ "concepto": "AMS", "cifra": "22%" }
+	{ "concepto": "Aplicaciones en la nube", "cifra": "6%" }
+	{ "porcentaje": "14.3%"}
+	{ "promedio": "2015*: $19,909"}
+	{ "concepto": "Software", "cifra": "70%" }
+	{ "concepto": "AMS", "cifra": "22%" }
+	{ "concepto": "Aplicaciones en la nube", "cifra": "9%" }
+	{ "porcentaje": "14.8%"}
+	{ "promedio": "2016*: $22,850"}
+	{ "concepto": "Software", "cifra": "10.9%" }
+	{ "concepto": "AMS", "cifra": "15.6%" }
+	{ "concepto": "Aplicaciones en la nube", "cifra": "56.0%" }
+	{ "promedio": "Crecimiento 2015* - 2016*"}
+"numDiapositiva": "43"
+    {
+		"concepto": "PIB per cápita", "children": [ 
+			{"concepto": "Estados Unidos", "cifra": "$54,629"},
+			{"concepto": "Europa", "cifra": "$39,613" },
+			{"concepto": "México", "cifra": "$9,747"},
+			{"concepto": "América Latina", "cifra": "$9,318" }
+			]
+		}
+	{
+		"concepto": "ARPU", "children": [ 
+			{"concepto": "Estados Unidos", "cifra": "$45"},
+			{"concepto": "Europa", "cifra": "$29" },
+			{"concepto": "México", "cifra": "$15"},
+			{"concepto": "América Latina", "cifra": "$9" }
+			]
+		}
+    {
+		"concepto": "Número de operadores móviles", "children": [ 
+			{"concepto": "Estados Unidos", "cifra": "4"},
+			{"concepto": "Europa", "cifra": "32" },
+			{"concepto": "México", "cifra": "3"},
+			{"concepto": "América Latina", "cifra": "11" }
+			]
+		}
+	{
+		"concepto": "EBITDA", "children": [ 
+			{"concepto": "Estados Unidos", "cifra": "25%"},
+			{"concepto": "Europa", "cifra": "35%" },
+			{"concepto": "México", "cifra": "21%"},
+			{"concepto": "América Latina", "cifra": "29%" }
+			]
+		}
+	{
+		"concepto": "CAPEX", "children": [ 
+			{"concepto": "Estados Unidos", "cifra": "19%"},
+			{"concepto": "Europa", "cifra": "20%" },
+			{"concepto": "México", "cifra": "12%"},
+			{"concepto": "América Latina", "cifra": "18%" }
+			]
+		}		

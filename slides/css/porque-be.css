@@ -25,10 +25,28 @@ img {
 	top: 300px;
 }
 
+#porque-be .step-container div:nth-child(3) {
+	width: 170px;
+	left: 550px;
+	top: 300px;
+}
+
+#porque-be .step-container div:nth-child(4) {
+	left: 750px;
+	top: 355px;
+}
+
 #porque-be .ulnaris-title {
 	width: 350px;
 	left: 0px;
 	top: 55px;
+}
+#porque-be .ulnaris-titleb {
+	font-family: 'helvetica-neue-bold' !important;
+	text-align: left !important;
+	font-size: 70px !important;
+	left: 0px;
+	top: 100px;
 }
 
 #porque-be .ulnaris-content {
