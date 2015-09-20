@@ -1,0 +1,32 @@
+#billion-revenue-mapa {
+	width: 1260px;
+	height: 628px;
+
+	position: absolute;
+	top: 80px;
+	left: calc(50% - 630px);
+}
+
+#billion-revenue-mapa img {
+	width: 100%;
+	height: 100%;
+}
+
+.billion-revenue-txt {
+	position: absolute;
+}
+
+.billion-revenue-txt span:nth-child(1) {
+	font-size: 34px;
+	/*color: #3a78c5;*/
+	color: #FFF;
+	font-weight: bold;
+}
+
+.billion-revenue-txt span:nth-child(2) {
+	font-size: 84px;
+	color: #FFF;
+	font-weight: bold;
+	position: absolute;
+	top: 34px;
+}

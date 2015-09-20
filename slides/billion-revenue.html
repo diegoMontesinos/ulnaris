@@ -1,0 +1,48 @@
+<!-- BILLION REVENUE -->
+<section id="billion-revenue" data-autoslide="100" data-transition="fade-in" data-transition-speed="fast"
+ data-state="billion-revenue-state">
+	<div class="step-container">
+
+		<!-- TITULO -->
+		<div class="ulnaris-title" style="top: 0px; font-size: 50px !important;">
+			<span>$46+ Billion de Revenue</span>
+		</div>
+
+		<!-- MAPA -->
+		<div id="billion-revenue-mapa">
+			<img src="img/mapa.png">
+		</div>
+
+		<!-- TEXTOS -->
+		<div class="billion-revenue-txt" style="left: 540px; top: 262px;">
+			<span>Norteamérica</span>
+			<span style="left: 0px;">$20B</span>
+		</div>
+
+		<div class="billion-revenue-txt" style="left: 948px; top: 268px;">
+			<span>Europa</span>
+			<span style="left: -52px;">$14B</span>
+		</div>
+
+		<div class="billion-revenue-txt" style="left: 652px; top: 464px;">
+			<span>Latinoamérica</span>
+			<span style="left: 30px;">$2B</span>
+		</div>
+
+		<div class="billion-revenue-txt" style="left: 966px; top: 462px;">
+			<span>Asia Pacífico, Oriente Medio, Turquía y África</span>
+			<span style="left: 200px;">$10B</span>
+		</div>
+	</div>
+</section>
+
+<script type="text/javascript">
+	(function () {
+		Reveal.addEventListener('billion-revenue-state', function() {
+			$(".billion-revenue-txt span").hide();
+			setTimeout(function () {
+				$(".billion-revenue-txt span").fadeIn(800);
+			}, 800);
+		});
+	})();
+</script>
