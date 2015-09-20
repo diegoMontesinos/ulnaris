@@ -10,7 +10,7 @@
 		"height": 768,
 		"max_width": 2048,
 		"max_height": 768,
-		"toolbar": false,
+		"toolbar": true,
 		"frame": false,
 		"fullscreen": true
 	},
