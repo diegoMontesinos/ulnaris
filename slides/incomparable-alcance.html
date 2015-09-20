@@ -1,6 +1,6 @@
 
 <!-- INCOMPARABLE ALCANCE -->
-<section id="incomparable-alcance" data-autoslide="100" data-state="incomparable-alcance-state">
+<section id="incomparable-alcance" data-autoslide="0" data-state="incomparable-alcance-state" data-transition="fade-in">
 	<div class="step-container">
 
 		<!-- TITULO -->
@@ -17,14 +17,6 @@
 		<div id="circles-incomparable-alcance"></div>
 	</div>
 </section>
-
-<style type="text/css">
-	#incomparable-alcance text {
-		font-weight: bold;
-		font-size: 18px;
-		fill: #FFF;
-	}
-</style>
 
 <script type="text/javascript">
 	(function () {
@@ -134,16 +126,16 @@
 			// Animamos
 			node.selectAll("path")
 			.transition()
-			.delay(800)
-			.duration(1000)
+			.delay(400)
+			.duration(900)
 			.attr("d", function (data) {
 				return describeArc(0, 0, 11, 0, 359);
 			});
 
 			textNode
 			.transition()
-			.delay(800)
-			.duration(1000)
+			.delay(400)
+			.duration(900)
 			.attr("transform", function (data) {
 				return "translate(" + (data.x + 10) + "," + (data.y + 20) + ")";
 			})
