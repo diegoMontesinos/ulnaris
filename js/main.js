@@ -5,6 +5,7 @@ var slidesSequence = [
 	"porque-be",
 	"be",
 	"ingram-micro-es",
+	"bienvenidos",
 	"lider-global-en-tecnologia",
 	"incomparable-alcance",
 	"billion-revenue"
