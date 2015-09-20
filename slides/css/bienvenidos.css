@@ -1,0 +1,45 @@
+#bienvenidos .step-container div {
+	position: absolute;
+}
+
+#bienvenidos .step-container div:nth-child(1) {
+	width: 420px;
+	left: 1000px;
+}
+
+#bienvenidos .step-container div:nth-child(2) {
+	width: 150px;
+	left: 1000px;
+	top: 250px;
+}
+
+#bienvenidos .step-container div:nth-child(3) {
+	width: 800px;
+	left: 1150px;
+	top: 180px;
+}
+
+#bienvenidos .step-container div:nth-child(4) {
+	width: 800px;
+	left: 1000px;
+	top: 350px;
+}
+
+#bienvenidos .step-container div:nth-child(5) {
+	width: 1024;
+	left: 0px;
+}
+
+#bienvenidos .ulnaris-title {
+	font-size: 120px !important;
+}
+
+#bienvenidos .ulnaris-content {
+	font-size: 70px !important;
+	text-align: left !important;
+}
+
+#bienvenidos .ulnaris-video {
+	width: 1024px !important;
+	height: 768px !important;
+}
