@@ -1,5 +1,8 @@
 function Ulnaris () {
 
+	// Videos en la presentación
+	var videos = [];
+
 	this.init = function (args) {
 
 		// Carga los archivos de las diapositivas
@@ -28,8 +31,24 @@ function Ulnaris () {
 				]
 			});
 
+			// Manejador de cambio de diapositiva
+			Reveal.addEventListener("slidechanged", function( event ) {
+			    // event.previousSlide, event.currentSlide, event.indexh, event.indexv
+			    //console.log(event.currentSlide);
+			});
+
 			//Reveal.slide(2, 0, 0);
 		}, args.onError);
+	};
+
+	this.associateVideo = function (video, state) {
+		console.log(video);
+		console.log(state);
+		/*if(typeof video === "string") {
+			video = $(video)[0];
+		}*/
+		/*Reveal.addEventListener(state, function () {
+		}, false);*/
 	};
 
 	function loadSlides (files, success, error) {

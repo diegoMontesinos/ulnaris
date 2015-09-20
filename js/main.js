@@ -1,7 +1,6 @@
 var ulnaris;
 var slidesSequence = [
 	"solo-logo",
-	"intro-video",
 	"intro",
 	"porque-be",
 	"be",
