@@ -33,22 +33,35 @@ function Ulnaris () {
 
 			// Manejador de cambio de diapositiva
 			Reveal.addEventListener("slidechanged", function( event ) {
-			    // event.previousSlide, event.currentSlide, event.indexh, event.indexv
-			    //console.log(event.currentSlide);
+
+				// Seteamos los videos
+				for (var i = 0; i < videos.length; i++) {
+
+					// Obtenemos el slide
+					var slide = $(videos[i]).closest("section")[0];
+					if(slide === event.currentSlide) {
+						videos[i].currentTime = 0.0;
+						videos[i].volume = 1.0;
+						videos[i].play();
+					}
+					else {
+						videos[i].pause();
+					}
+				}
 			});
 
 			//Reveal.slide(2, 0, 0);
 		}, args.onError);
 	};
 
-	this.associateVideo = function (video, state) {
-		console.log(video);
-		console.log(state);
-		/*if(typeof video === "string") {
+	this.associateVideo = function (video) {
+		if(typeof video === "string") {
 			video = $(video)[0];
-		}*/
-		/*Reveal.addEventListener(state, function () {
-		}, false);*/
+		}
+
+		if(video) {
+			videos.push(video);
+		}
 	};
 
 	function loadSlides (files, success, error) {

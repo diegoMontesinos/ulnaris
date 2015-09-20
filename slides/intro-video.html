@@ -4,7 +4,7 @@
 		
 		<!-- VIDEO BACKGROUND -->
 		<div class="fragment fade-in" data-autoslide="0">
-			<video class=".ulnaris-video-fs" autoplay loop>
+			<video class="ulnaris-video-fs">
 				<source src="video/intro.webm" type="video/webm">
 			</video>
 		</div>
@@ -13,5 +13,7 @@
 </div>
 
 <script type="text/javascript">
-	ulnaris.associateVideo("#intro-video video", "intro-video-state");
+	(function () {
+		ulnaris.associateVideo("#intro-video video");
+	})();
 </script>
