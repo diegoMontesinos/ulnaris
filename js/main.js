@@ -8,7 +8,8 @@ var slidesSequence = [
 	"bienvenidos",
 	"lider-global-en-tecnologia",
 	"incomparable-alcance",
-	"billion-revenue"
+	"billion-revenue",
+	"crecimiento-ti"
 ];
 
 function main (debug) {
