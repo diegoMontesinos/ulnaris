@@ -1,24 +1,84 @@
 #estructura-ingram .step-container div {
-	position: center;
+	position: absolute;
+	text-align: center;
 	width: 100px;
 }
 
 #estructura-ingram .step-container div:nth-child(1) {
-	left: 100px;
 	top: 0px;
 }
 
 #estructura-ingram .step-container div:nth-child(2) {
-	left: 0px;
-	top: 0px;
+	left: 1024px;
+	top: 150px;
+}
+
+#estructura-ingram .step-container div:nth-child(3) {
+	left: 168px;
+	top: 380px;
+}
+
+#estructura-ingram .step-container div:nth-child(4) {
+	left: 336px;
+	top: 380px;
+}
+
+#estructura-ingram .step-container div:nth-child(5) {
+	left: 504px;
+	top: 380px;
+}
+
+#estructura-ingram .step-container div:nth-child(6) {
+	left: 672px;
+	top: 380px;
+}
+
+#estructura-ingram .step-container div:nth-child(7) {
+	left: 840px;
+	top: 380px;
+}
+
+#estructura-ingram .step-container div:nth-child(8) {
+	left: 1008px;
+	top: 380px;
+}
+
+#estructura-ingram .step-container div:nth-child(9) {
+	left: 1176px;
+	top: 380px;
+}
+
+#estructura-ingram .step-container div:nth-child(10) {
+	left: 1344px;
+	top: 380px;
+}
+
+#estructura-ingram .step-container div:nth-child(11) {
+	left: 1512px;
+	top: 380px;
+}
+
+#estructura-ingram .step-container div:nth-child(12) {
+	left: 1680px;
+	top: 380px;
+}
+
+#estructura-ingram .step-container div:nth-child(13) {
+	left: 1848px;
+	top: 380px;
+}
+
+#estructura-ingram .step-container div:nth-child(14) {
+	left: 2016px;
+	top: 380px;
 }
 
 #estructura-ingram .ulnaris-content {
-	font-size: 35px;
+	font-size: 25px;
 }
 
 #estructura-ingram .ulnaris-title-center {
-	position: relative;
+	position: absolute;
 	width: 100%;
 	top: 0px;
 	font-family: 'helvetica-neue-bold' !important;
