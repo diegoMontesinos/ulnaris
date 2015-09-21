@@ -1,0 +1,18 @@
+{
+	"name" : "Principales mayoristas de volumen",
+	"data" : [
+		{ "label" : "Ingram", "value" : "28.5" },
+		{ "label" : "Exel del Norte", "value" : "10.5" },
+		{ "label" : "CT Internacional", "value" : "7.8" },
+		{ "label" : "CVA", "value" : "7.4" },
+		{ "label" : "PCH Mayoreo", "value" : "5.5" },
+		{ "label" : "DC Mayoristas", "value" : "5.4" },
+		{ "label" : "Azerty", "value" : "4.6" },
+		{ "label" : "TEAM", "value" : "4.1" },
+		{ "label" : "Compusoluciones", "value" : "3.8" },
+		{ "label" : "Grupo Loma", "value" : "2.6" },
+		{ "label" : "Daisytek", "value" : "2.6" },
+		{ "label" : "Tech data", "value" : "2.6" },
+		{ "label" : "Otros", "value" : "14.5" }
+	]
+}

@@ -12,11 +12,11 @@
 
 			<!-- PRIMERA GRAFICA -->
 			<div id="crecimiento-ti-data-1" style="left: 590px; top: -35px;">
-				<div style="display: none;"><span>Crecimiento 1S14 - 1S15 (MMMXP)</span></div>
+				<div><span>Crecimiento 1S14 - 1S15 (MMMXP)</span></div>
 			</div>
 
 			<!-- SEGUNDA GRAFICA -->
-			<div id="crecimiento-ti-data-2" style="left: 590px; top: -35px;">
+			<div id="crecimiento-ti-data-2" style="left: 954px; top: -35px; display: none;">
 			</div>
 		</div>
 	</div>
@@ -159,7 +159,7 @@
 						$("#crecimiento-ti-data-1 .label").fadeIn(duration);
 						setTimeout(function () {
 							$("#crecimiento-ti-data-1").animate({
-								left: "-=500"
+								left: "-=540"
 							}, 1000);
 						}, delay * 4);
 					}, delay);
@@ -168,12 +168,43 @@
 		}
 
 		function graphViz2 () {
-			var svg = ulnaris.D3.buildStackedBar({
+			ulnaris.D3.buildStackedBar({
 				container : "#crecimiento-ti-data-2",
-				width     : 900,
+				width     : 960,
 				height    : 500,
-				margin    : { top: 0, right: 10, bottom: 0, left: 10 },
-				jsonPath  : "data/crecimientoTI2.json"
+				margin    : {top: 20, right: 40, bottom: 30, left: 40},
+				jsonPath  : "data/crecimientoTI2.json",
+				onload    : function (svg, x, y, color) {
+
+					// Quitamos el eje
+					svg.selectAll(".axis.y")
+					.style("display", "none");
+
+					// Agregamos el callback
+					callbacks.push(function () {
+
+						// Seleccioamos las barras
+						var stacked = svg.selectAll(".stackedValue");
+
+						stacked.selectAll("rect")
+						.attr("height", function (d) { return 0; })
+						.attr("y", function (d) { return 450; });
+
+						setTimeout(function () {
+							$("#crecimiento-ti-data-2").fadeIn(600, function () {
+
+								// Animate
+								var delay = 500, duration = 3000;
+								stacked.selectAll("rect")
+								.transition()
+								.delay(delay)
+								.duration(duration)
+								.attr("y", function (d) { return y(d.y1); })
+								.attr("height", function (d) { return y(d.y0) - y(d.y1); })
+							});
+						}, 5000);
+					});
+				}
 			});
 		}
 
@@ -184,7 +215,7 @@
 			};
 		});
 
-		//graphViz1();
+		graphViz1();
 		graphViz2();
 	})();
 </script>;

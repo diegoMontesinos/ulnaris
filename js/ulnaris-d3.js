@@ -3,8 +3,9 @@ function UlnarisD3 () {
 	this.buildStackedBar = function (options) {
 
 		// Dimensiones
-		var width  = options.width - options.margin.left - options.margin.right;
-		var height = options.height - options.margin.top - options.margin.bottom;
+		var margin = options.margin;
+		var width  = options.width - margin.left - margin.right;
+		var height = options.height - margin.top - margin.bottom;
 
 		// Escalas
 		var x = d3.scale.ordinal()
@@ -29,10 +30,10 @@ function UlnarisD3 () {
 		// SVG
 		var svg = d3.select(options.container)
 		.append("svg")
-		.attr("width", options.width + options.margin.left + options.margin.right)
-		.attr("height", options.height + options.margin.top + options.margin.bottom)
+		.attr("width", width + margin.left + margin.right + 200)
+		.attr("height", height + margin.top + margin.bottom)
 		.append("g")
-		.attr("transform", "translate(" + options.margin.left + "," + options.margin.top + ")");
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 		// Leemos los datos
 		d3.json(options.jsonPath, function (error, root) {
@@ -45,6 +46,7 @@ function UlnarisD3 () {
 			// Dominio
 			color.domain(d3.keys(categories));
 
+			// Acomodamos los datos
 			data.forEach(function (d) {
 				var y0 = 0;
 				d.stackedValues = color.domain().map(function (name) {
@@ -57,7 +59,7 @@ function UlnarisD3 () {
 				d.total = d.stackedValues[d.stackedValues.length - 1].y1;
 			});
 
-			// Dominio
+			// Dominios
 			x.domain(names);
 			y.domain([0, d3.max(data, function (d) { return d.total; })]);
 
@@ -75,7 +77,7 @@ function UlnarisD3 () {
 			var stacked = svg.selectAll(".stackedValue")
 			.data(data)
 			.enter().append("g")
-			.attr("class", "g")
+			.attr("class", "stackedValue")
 			.attr("transform", function (d) {
 				return "translate(" + x(d.name) + ",0)";
 			});
@@ -95,23 +97,223 @@ function UlnarisD3 () {
 			.attr("class", "legend")
 			.attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
-			// Rectangulo (codigo de color)
 			legend.append("rect")
-			.attr("x", width - 18)
+			.attr("x", width - 10)
 			.attr("width", 18)
 			.attr("height", 18)
 			.style("fill", color);
 
-			/*
 			legend.append("text")
-			.attr("x", width - 24)
+			.attr("x", width + 10)
 			.attr("y", 9)
-			.attr("dy", ".35em")
-			.style("text-anchor", "end")
-			.text(function(d) { return d; });
-			*/
+			.attr("dy", "0.35em")
+			.style("text-anchor", "start")
+			.text(function (d) {
+				return categories[d];
+			});
+
+			options.onload(svg, x, y, color);
+		});
+	};
+
+	this.buildDonut3D = function (options) {
+		var id   = options.id,
+			data = options.data,
+			x    = options.x,   y = options.y,
+			rx   = options.rx, ry = options.ry,
+			h    = options.height,
+			ir   = options.innerRadius;
+		var width = $("#" + id).closest("svg").width();
+
+		var _data = d3.layout.pie()
+		.sort(null)
+		.value(function (d) { return d.value; })(data);
+
+		var slices = d3.select("#" + id)
+		.append("g")
+		.attr("transform", "translate(" + x + "," + y + ")")
+		.attr("class", "slices");
+
+		slices.selectAll(".innerSlice")
+		.data(_data)
+		.enter().append("path")
+		.attr("class", "innerSlice")
+		.style("fill", function (d) { return d3.hsl(d.data.color).darker(0.7); })
+		.attr("d",function (d){ return pieInner(d, rx + 0.5, ry + 0.5, h, ir); })
+		.each(function (d) { this._current = d; });
+		
+		slices.selectAll(".topSlice")
+		.data(_data).enter().append("path")
+		.attr("class", "topSlice")
+		.style("fill", function (d) { return d.data.color; })
+		.style("stroke", function (d) { return d.data.color; })
+		.attr("d",function (d) { return pieTop(d, rx, ry, ir); })
+		.each(function (d) { this._current = d; });
+		
+		slices.selectAll(".outerSlice")
+		.data(_data).enter().append("path")
+		.attr("class", "outerSlice")
+		.style("fill", function (d) { return d3.hsl(d.data.color).darker(0.7); })
+		.attr("d",function (d) { return pieOuter(d, rx-.5,ry-.5, h); })
+		.each(function (d) { this._current = d ;});
+
+		slices.selectAll(".percent")
+		.data(_data).enter().append("text")
+		.attr("class", "percent")
+		.attr("x",function (d) { return 1.05*rx*Math.cos(0.5*(d.startAngle+d.endAngle)); })
+		.attr("y",function (d) { return 1.05*ry*Math.sin(0.5*(d.startAngle+d.endAngle)); })
+		.text(getPercent).each(function (d) { this._current = d;});
+
+		// Legends
+		var legend = d3.select("#" + id).selectAll(".legend")
+		.data(_data).enter().append("g")
+		.attr("class", "legend")
+		.attr("transform", function(d, i) {
+			return "translate(" + (width - 250) + "," + (i * 30 + 90) + ")";
 		});
 
-		return svg;
+		legend.append("rect")
+		.attr("x", 10)
+		.attr("width", 18)
+		.attr("height", 18)
+		.style("fill", function (d) {
+			return d.data.color;
+		});
+
+		legend.append("text")
+		.attr("x", 35)
+		.attr("y", 9)
+		.attr("dy", "0.35em")
+		.style("text-anchor", "start")
+		.text(function (d) {
+			return d.data.label;
+		});
 	};
+
+	this.transitionDonut3D = function (options) {
+		var id = options.id,
+			data = options.data,
+			rx = options.rx, ry = options.ry,
+			h = options.height,
+			ir = options.innerRadius,
+			duration = options.duration;
+
+		function arcTweenInner (a) {
+			var i = d3.interpolate(this._current, a);
+			this._current = i(0);
+			return function (t) {
+				return pieInner(i(t), rx+0.5, ry+0.5, h, ir);
+			};
+		}
+
+		function arcTweenTop (a) {
+			var i = d3.interpolate(this._current, a);
+			this._current = i(0);
+			return function (t) {
+				return pieTop(i(t), rx, ry, ir);
+			};
+		}
+
+		function arcTweenOuter(a) {
+			var i = d3.interpolate(this._current, a);
+			this._current = i(0);
+			return function (t) {
+				return pieOuter(i(t), rx-.5, ry-.5, h);
+			};
+		}
+
+		function textTweenX (a) {
+			var i = d3.interpolate(this._current, a);
+			this._current = i(0);
+			return function (t) {
+				return 1.05 * rx * Math.cos(0.5 * (i(t).startAngle + i(t).endAngle));
+			};
+		}
+
+		function textTweenY (a) {
+			var i = d3.interpolate(this._current, a);
+			this._current = i(0);
+			return function (t) {
+				return 1.05 * ry * Math.sin(0.5 * (i(t).startAngle + i(t).endAngle));
+			};
+		}
+
+		var _data = d3.layout.pie()
+		.sort(null)
+		.value(function (d) {
+			return d.value;
+		})(data);
+		
+		d3.select("#" + id).selectAll(".innerSlice")
+		.data(_data)
+		.transition()
+		.duration(duration)
+		.attrTween("d", arcTweenInner); 
+		
+		d3.select("#" + id).selectAll(".topSlice")
+		.data(_data)
+		.transition()
+		.duration(duration)
+		.attrTween("d", arcTweenTop); 
+		
+		d3.select("#" + id).selectAll(".outerSlice")
+		.data(_data)
+		.transition()
+		.duration(duration)
+		.attrTween("d", arcTweenOuter);
+
+		d3.select("#" + id).selectAll(".percent")
+		.data(_data)
+		.transition()
+		.duration(duration)
+		.attrTween("x", textTweenX)
+		.attrTween("y", textTweenY)
+		.text(getPercent);
+	};
+
+	function pieTop (d, rx, ry, ir) {
+		if(d.endAngle - d.startAngle == 0 ) return "M 0 0";
+		var sx = rx*Math.cos(d.startAngle),
+			sy = ry*Math.sin(d.startAngle),
+			ex = rx*Math.cos(d.endAngle),
+			ey = ry*Math.sin(d.endAngle);
+			
+		var ret =[];
+		ret.push("M",sx,sy,"A",rx,ry,"0",(d.endAngle-d.startAngle > Math.PI? 1: 0),"1",ex,ey,"L",ir*ex,ir*ey);
+		ret.push("A",ir*rx,ir*ry,"0",(d.endAngle-d.startAngle > Math.PI? 1: 0), "0",ir*sx,ir*sy,"z");
+		return ret.join(" ");
+	}
+
+	function pieOuter(d, rx, ry, h ){
+		var startAngle = (d.startAngle > Math.PI ? Math.PI : d.startAngle);
+		var endAngle = (d.endAngle > Math.PI ? Math.PI : d.endAngle);
+		
+		var sx = rx*Math.cos(startAngle),
+			sy = ry*Math.sin(startAngle),
+			ex = rx*Math.cos(endAngle),
+			ey = ry*Math.sin(endAngle);
+			
+			var ret =[];
+			ret.push("M",sx,h+sy,"A",rx,ry,"0 0 1",ex,h+ey,"L",ex,ey,"A",rx,ry,"0 0 0",sx,sy,"z");
+			return ret.join(" ");
+	}
+
+	function pieInner(d, rx, ry, h, ir ) {
+		var startAngle = (d.startAngle < Math.PI ? Math.PI : d.startAngle);
+		var endAngle = (d.endAngle < Math.PI ? Math.PI : d.endAngle);
+		
+		var sx = ir*rx*Math.cos(startAngle),
+			sy = ir*ry*Math.sin(startAngle),
+			ex = ir*rx*Math.cos(endAngle),
+			ey = ir*ry*Math.sin(endAngle);
+
+			var ret =[];
+			ret.push("M",sx, sy,"A",ir*rx,ir*ry,"0 0 1",ex,ey, "L",ex,h+ey,"A",ir*rx, ir*ry,"0 0 0",sx,h+sy,"z");
+			return ret.join(" ");
+	}
+
+	function getPercent(d) {
+		var percentStr = Math.round(1000*(d.endAngle-d.startAngle)/(Math.PI*2))/10+'%';
+		return percentStr;
+	}
 }

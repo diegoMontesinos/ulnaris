@@ -1,0 +1,16 @@
+{
+	"name" : "Principales mayoristas de soluciones de valor",
+	"data" : [
+		{ "label": "Avnet", "value": "23.1" },
+		{ "label": "INGRAM", "value": "15.1" },
+		{ "label": "Compusoluciones", "value": "15.1" },
+		{ "label": "TEAM", "value": "10.2" },
+		{ "label": "Anixter", "value": "8.1" },
+		{ "label": "Westcon", "value": "6.2" },
+		{ "label": "Dice", "value": "6.2" },
+		{ "label": "CT Internacional", "value": "3.7" },
+		{ "label": "Tech Data", "value": "3.1" },
+		{ "label": "MAPS", "value": "2.2" },
+		{ "label": "Otros", "value": "7.0" }
+	]
+}

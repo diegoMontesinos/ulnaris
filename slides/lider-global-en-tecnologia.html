@@ -34,10 +34,7 @@
 
 		// Leemos los datos
 		d3.json("data/lider-global.json", function (error, root) {
-			if (error) {
-				console.log(error);
-				return;
-			}
+			if (error) throw error;
 
 			// Nodos
 			var node = svg.selectAll(".node")
@@ -53,6 +50,18 @@
 				return "translate(" + radius + "," + radius + ")";
 			});
 
+			// Ponemos un circulo
+			node.append("circle")
+			.attr("r", function (d) {
+				return d.r;
+			})
+			.style("fill", function (d) {
+				return color(d.packageName);
+			});
+
+			// Texto
+			node.call(putText);
+
 			// Cada vez que se muestra la diapositiva
 			Reveal.addEventListener('lider-global-state', function() {
 
@@ -67,22 +76,7 @@
 					return "translate(" + d.x + "," + d.y + ")";
 				});
 			}, false );
-
-			// Ponemos un circulo
-			node.append("circle")
-			.attr("r", function (d) {
-				return d.r;
-			})
-			.style("fill", function (d) {
-				return color(d.packageName);
-			});
-
-			// Texto
-			node.call(putText);
 		});
-
-		// Ajustamos el frameElement
-		d3.select(self.frameElement).style("height", diameter + "px");
 
 		// Aplana las jerarquias en una sola.
 		function classes (root) {
