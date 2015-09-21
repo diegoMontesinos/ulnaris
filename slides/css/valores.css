@@ -1,0 +1,27 @@
+#valores .step-container div {
+	position: absolute;
+}
+
+#valores-content div:nth-child(1) {
+	text-align: right !important;
+	width: 650px;
+	left: 150px;
+	top: 50px;
+}
+
+#valores-content div:nth-child(2) {
+	text-align: left !important;
+	width: 700px;
+	left: 1024px;
+	top: 0px;
+}
+
+#valores .ulnaris-title {
+	text-align: left !important;
+	font-size: 65px !important;
+	top: 0px;
+}
+
+#valores .ulnaris-content {
+	font-size: 35px;
+}
