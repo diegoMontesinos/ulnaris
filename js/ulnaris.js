@@ -1,11 +1,34 @@
 function Ulnaris () {
 
+	// NW Window
+	var nwWindow;
+
 	// Videos en la presentación
 	var videos = [];
+
+	// Myo Communication
+	var myoComm;
 	
 	this.D3 = new UlnarisD3();
 
 	this.init = function (args) {
+
+		// Referencia al nodewebkit
+		nwWindow = require('nw.gui').Window.get();
+		if(args.debug) {
+			nwWindow.showDevTools();
+		}
+
+		// Obtenemos la configuracion del teclado
+		var keyboardConfig = getKeboardConfig(args.myo);
+
+		// Manejo de diapositivas
+		if(args.myo) {
+
+			// Creamos e iniciamos la comunicacion con el Myo
+			myoComm = new UlnarisMyo();
+			myoComm.init();
+		}
 
 		// Carga los archivos de las diapositivas
 		loadSlides(args.slides, function () {
@@ -17,15 +40,13 @@ function Ulnaris () {
 				fragments : true,
 				history   : true,
 				center    : true,
+				keyboard  : keyboardConfig,
 
 				autoSlide          : 1000,
 				autoSlideStoppable : false,
 
 				width     : 2048,
 				height    : 768,
-
-				//minScale  : 1.0,
-				//maxScale  : 1.0,
 
 				transition: 'concave',
 				dependencies: [
@@ -51,8 +72,6 @@ function Ulnaris () {
 					}
 				}
 			});
-
-			//Reveal.slide(2, 0, 0);
 		}, args.onError);
 	};
 
@@ -103,5 +122,19 @@ function Ulnaris () {
 
 		// Si no hubo un error regresamos
 		success();
+	}
+
+	function getKeboardConfig (useMyo) {
+		document.body.addEventListener("keypress", function (event) {
+			console.log(event.which);
+		}, false);
+
+		var keyboard = {
+			70 : function() {
+				nwWindow.toggleFullscreen();
+			}
+		};
+
+		return keyboard;
 	}
 }
