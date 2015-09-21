@@ -21,10 +21,14 @@ var slidesSequence = [
 	"market-share-by-bu",
 	"escenario-para-negocios-tic",
 	"compromisos",
+	"compromisos2",
 	"logros",
+	"logros2",
+	"estructura-ingram",
 	"haciadondevamos",
 	"marketing",
-	"end"
+	"end",
+	"outro-video"
 ];
 
 function main (debug) {
