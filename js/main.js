@@ -27,6 +27,10 @@ var slidesSequence = [
 	"logros2",
 	"estructura-ingram",
 	"haciadondevamos",
+	"be-soluciones-avanzadas",
+	"oportunidades-de-negocios",
+	"experiencia",
+	"la-mayor-experiencia",
 	"marketing",
 	"end",
 	"outro-video"

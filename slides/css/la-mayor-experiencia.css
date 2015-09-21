@@ -1,0 +1,21 @@
+#la-mayor-experiencia .step-container div {
+	position: absolute;
+}
+
+#listUno {
+	position: absolute;
+	width: 800px;
+	left: 100px;
+	top: 0px;
+}
+
+#listDos {
+	position: absolute;
+	width: 800px;
+	left: 100px;
+	top: 400px;
+}
+
+#la-mayor-experiencia .ulnaris-content {
+	font-size: 35px;
+}
