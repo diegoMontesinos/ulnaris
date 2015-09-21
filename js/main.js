@@ -16,6 +16,8 @@ var slidesSequence = [
 	"expectativas",
 	"perspectivas",
 	"crecimiento-ti",
+	"bussiness-market-share",
+	"marketing-share-bu",
 	"marketing"
 ];
 

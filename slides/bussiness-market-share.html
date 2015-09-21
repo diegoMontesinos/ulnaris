@@ -1,0 +1,61 @@
+<!-- BUSSINESS MARKET -->
+<section id="bussiness-market-share" data-autoslide="0" data-state="bussiness-market-state">
+	<div class="step-container">
+
+		<!-- TITULO -->
+		<div class="ulnaris-title" style="top: 0px; font-size: 50px !important;">
+			<span>SW Business Market Share</span>
+		</div>
+
+		<!-- CONTENIDO -->
+		<div class="ulnaris-content">
+
+			<!-- GRAFICA -->
+			<div id="bussiness-market-data" style="left: 590px; top: -35px;">
+			</div>
+		</div>
+	</div>
+</section>
+
+<script type="text/javascript">
+	(function () {
+		ulnaris.D3.buildStackedBar({
+			container : "#bussiness-market-data",
+			width     : 460,
+			height    : 500,
+			margin    : {top: 20, right: 40, bottom: 30, left: 40},
+			jsonPath  : "data/bussinessMarket.json",
+			onload    : function (svg, x, y, color) {
+
+				// Quitamos el eje
+				svg.selectAll(".axis.y")
+				.style("display", "none");
+
+				// Agregamos el callback
+				Reveal.addEventListener("bussiness-market-state", function () {
+
+					// Seleccioamos las barras
+					var stacked = svg.selectAll(".stackedValue");
+
+					stacked.selectAll("rect")
+					.attr("height", function (d) { return 0; })
+					.attr("y", function (d) { return 450; });
+
+					setTimeout(function () {
+						$("#crecimiento-ti-data-2").fadeIn(600, function () {
+
+							// Animate
+							var delay = 100, duration = 3000;
+							stacked.selectAll("rect")
+							.transition()
+							.delay(delay)
+							.duration(duration)
+							.attr("y", function (d) { return y(d.y1); })
+							.attr("height", function (d) { return y(d.y0) - y(d.y1); })
+						});
+					}, 100);
+				});
+			}
+		});
+	})();
+</script>

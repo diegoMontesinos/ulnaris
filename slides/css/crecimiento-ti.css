@@ -25,9 +25,11 @@
 	left: 0px;
 }
 
-#crecimiento-ti-data-1 .axis {
+#crecimiento-ti-data-1 .axis,
+#crecimiento-ti-data-2 .axis {
 	stroke: #FFF;
 	fill: none;
+	color: #FFF;
 	stroke-width: 2px;
 }
 
@@ -37,12 +39,15 @@
 	font-weight: bold;
 }
 
-#crecimiento-ti-data-2 .axis path,
-#crecimiento-ti-data-2 .axis line {
-	fill: none;
-	stroke: #fff;
+/***/
+
+#crecimiento-ti-data-2 {
+	width: 1200px;
+	position: absolute;
 }
 
-#crecimiento-ti-data-2 .x.axis path {
-	display: none;
+#crecimiento-ti-data-2 text {
+	font-size: 16px;
+	fill: #FFF;
+	stroke: none;
 }
