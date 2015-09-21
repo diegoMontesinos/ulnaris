@@ -31,13 +31,13 @@ function UlnarisMyo () {
 		// Mano hacia adentro (Diapositiva anterior)
 		Myo.on("wave_in", function() {
 			Reveal.prev();
-			this.vibrate();
+			//this.vibrate();
 		});
 
 		// Mano hacia afuera (Siguiente diapositiva)
 		Myo.on('wave_out', function() {
 			Reveal.next();
-			this.vibrate();
+			//this.vibrate();
 		});
 
 		// Conecta el Myo

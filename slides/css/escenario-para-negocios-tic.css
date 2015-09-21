@@ -1,0 +1,21 @@
+#escenario-para-negocios-tic .step-container div {
+	position: absolute;
+}
+
+#listUno {
+	position: absolute;
+	width: 800px;
+	left: 100px;
+	top: 50px;
+}
+
+#listDos {
+	position: absolute;
+	width: 800px;
+	left: 1124px;
+	top: 50px;
+}
+
+#escenario-para-negocios-tic .ulnaris-content {
+	font-size: 35px;
+}

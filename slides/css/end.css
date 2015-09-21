@@ -1,0 +1,26 @@
+#end .step-container div {
+	position: absolute;
+}
+
+#end .step-container div:nth-child(1) {
+	width: 2048px;
+	left: 0px;
+	top: 0px;
+	z-index: -100;
+}
+
+#end .step-container div:nth-child(2) {
+	width: 600px;
+	top: 180px !important;
+	left: 1150px;
+}
+
+#end .ulnaris-video-fullscreen-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
+}

@@ -2,23 +2,17 @@
 	position: absolute;
 }
 
-#perspectivas-content div:nth-child(1) {
-	text-align: right !important;
-	width: 650px;
-	left: 150px;
-	top: 50px;
-}
-
-#perspectivas-content div:nth-child(2) {
-	text-align: left !important;
-	width: 700px;
-	left: 1024px;
+#listUno {
+	position: absolute;
+	width: 800px;
+	left: 100px;
 	top: 0px;
 }
 
-#perspectivas .ulnaris-title {
-	text-align: left !important;
-	font-size: 65px !important;
+#listDos {
+	position: absolute;
+	width: 800px;
+	left: 1124px;
 	top: 0px;
 }
 

@@ -1,0 +1,33 @@
+#logros .step-container div {
+	position: absolute;
+}
+
+#logros .step-container div:nth-child(1) {
+	width: 2048px;
+    height: 768px;
+	left: 0px;
+	top: 0px !important;
+	z-index: -100;
+}
+
+#logros .step-container div:nth-child(2) {
+	width: 600px;
+}
+
+#logros .ulnaris-video-fs {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#logros .ulnaris-video-fullscreen-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
+}
