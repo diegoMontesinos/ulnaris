@@ -11,8 +11,7 @@
 		"max_width": 2048,
 		"max_height": 768,
 		"toolbar": true,
-		"frame": false,
-		"fullscreen": true
+		"frame": true
 	},
 	"repository": {
 		"type": "git",

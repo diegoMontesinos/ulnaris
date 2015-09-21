@@ -1,0 +1,35 @@
+{
+	"name"       : "Distribución de la facturación durante 1S2015",
+	"categories" : [
+		"Equipo",
+		"Consumibles",
+		"Software",
+		"Servicios TIC",
+		"Telecom",
+		"Servicios TIC en la nube",
+		"TV restringida",
+		"Otros"
+	],
+	"data": [
+		{
+			"name" : "Canales",
+			"value": ["65", "13",  "8",  "9", "0", "0.3", "0", "4"],
+			"total": "$69,605"
+		},
+		{
+			"name" : "Fabricantes",
+			"value": ["72",  "4", "11", "10", "0", "0.7", "0", "1"],
+			"total": "$116,441"
+		},
+		{
+			"name" : "Proveedores de servicios",
+			"value": ["14", "0", "6", "67", "0", "2", "0", "11"],
+			"total": "$29,786"
+		},
+		{
+			"name" : "Operadores telecom",
+			"value": ["13", "0", "0", "1", "73", "0.1", "11",  "1"],
+			"total": "$217,039"
+		}
+	]
+}

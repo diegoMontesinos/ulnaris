@@ -2,6 +2,8 @@ function Ulnaris () {
 
 	// Videos en la presentación
 	var videos = [];
+	
+	this.D3 = new UlnarisD3();
 
 	this.init = function (args) {
 

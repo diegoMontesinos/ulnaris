@@ -1,0 +1,48 @@
+#crecimiento-ti-data-1 {
+	width: 1200px;
+}
+
+#crecimiento-ti-data-1,
+#crecimiento-ti-data-1 > div,
+#crecimiento-ti-data-1 > svg,
+#crecimiento-ti-data-1 .label {
+	position: absolute;
+}
+
+#crecimiento-ti-data-1 > div {
+	font-size: 28px;
+	top: 0px;
+	left: 0px;
+}
+
+#crecimiento-ti-data-1 .label {
+	left: 560px;
+	font-size: 18px;
+}
+
+#crecimiento-ti-data-1 > svg {
+	top: 42px;
+	left: 0px;
+}
+
+#crecimiento-ti-data-1 .axis {
+	stroke: #FFF;
+	fill: none;
+	stroke-width: 2px;
+}
+
+#crecimiento-ti-data-1 .text-bar {
+	fill: #fff;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+#crecimiento-ti-data-2 .axis path,
+#crecimiento-ti-data-2 .axis line {
+	fill: none;
+	stroke: #fff;
+}
+
+#crecimiento-ti-data-2 .x.axis path {
+	display: none;
+}

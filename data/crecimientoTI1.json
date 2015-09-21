@@ -1,0 +1,25 @@
+{
+	"name": "Crecimiento 1S14 - 1S15 (MMXP)",
+	"data": [
+		{ "name": "Total", "value": "2.6" },
+		{ "name": "Mayorista de Soluciones", "value": "26.9" },
+		{ "name": "Centro de Datos", "value": "17.3" },
+		{ "name": "Desarrolladores de Software a la medida", "value": "16.3" },
+		{ "name": "Operador de TV restringida", "value": "11.8" },
+		{ "name": "Integradores de sistemas y consultores", "value": "11.6" },
+		{ "name": "Mantenimiento", "value": "11.4" },
+		{ "name": "Integradores de Redes", "value": "8.8" },
+		{ "name": "Fab. de software", "value": "6.3" },
+		{ "name": "Fab. periféricos", "value": "6.3" },
+		{ "name": "Distribuidores de sistemas personales", "value": "6.2" },
+		{ "name": "Detallista", "value": "5.7" },
+		{ "name": "Mayoristas de Volumen", "value": "5.0" },
+		{ "name": "Fab. soluciones", "value": "3.3" },
+		{ "name": "Fab. sistemas personales", "value": "3.3" },
+		{ "name": "Fab. equipo de red", "value": "2.2" },
+		{ "name": "Operador móvil", "value": "0.2" },
+		{ "name": "Empresas de capacitación", "value": "-0.5" },
+		{ "name": "VARs", "value": "-5.1" },
+		{ "name": "Operador fijo", "value": "-7.0" }
+	]
+}
