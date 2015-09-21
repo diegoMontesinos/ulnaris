@@ -1,12 +1,17 @@
-<!-- MARKETING SHARE BY BU -->
-<section id="marketing-share-bu" data-transition="slide-in fade-out" data-background="#000" data-autoslide="0" 
-	data-state="marketing-share-bu-state">
+<!-- market SHARE BY BU -->
+<section id="market-share-bu" data-transition="slide-in fade-out" data-background="#000" data-autoslide="10" 
+	data-state="market-share-bu-state">
 	<div class="step-container">
 
-		<!-- PIE 1 -->
-		<div id="marketing-share-pie-1"></div>
+		<!-- TITULO -->
+		<div class="fragment fade-in" data-autoslide="0">
+			<span class="ulnaris-title">Market Share by BU</span>
+		</div>
 
-		<div id="marketing-share-pie-2"></div>
+		<!-- PIE 1 -->
+		<div id="market-share-pie-1"></div>
+
+		<div id="market-share-pie-2"></div>
 	</div>
 </div>
 
@@ -15,7 +20,7 @@
 		var callbacks = [];
 
 		function graphViz1 () {
-			d3.json("data/marketingShare1.json", function (error, root) {
+			d3.json("data/marketShare1.json", function (error, root) {
 
 				// Datos
 				var data = root.data;
@@ -33,21 +38,21 @@
 				}
 
 				// Creamos el svg
-				var svg = d3.select("#marketing-share-pie-1")
+				var svg = d3.select("#market-share-pie-1")
 				.append("svg")
 				.attr("width", 1000)
 				.attr("height", 700);
 
 				svg.append("g")
-				.attr("id", "marketing-share-donut-1");
+				.attr("id", "market-share-donut-1");
 
 				var x_ = 350,
-					y_ = 300,
-					rx_ = 315,
-					ry_ = 250,
+					y_ = 350,
+					rx_ = 250,
+					ry_ = 205,
 					h_ = 30;
 				ulnaris.D3.buildDonut3D({
-					id: "marketing-share-donut-1",
+					id: "market-share-donut-1",
 					data: onesData,
 					x: x_, y: y_,
 					rx: rx_, ry: ry_,
@@ -55,12 +60,12 @@
 					innerRadius: 0
 				});
 
-				d3.selectAll("#marketing-share-donut-1 .percent")
+				d3.selectAll("#market-share-donut-1 .percent")
 				.style("display", "none");
 
 				callbacks.push(function () {
 					ulnaris.D3.transitionDonut3D({
-						id: "marketing-share-donut-1",
+						id: "market-share-donut-1",
 						data: onesData,
 						rx: rx_, ry: ry_,
 						height: h_,
@@ -71,14 +76,14 @@
 
 					setTimeout(function () {
 						ulnaris.D3.transitionDonut3D({
-							id: "marketing-share-donut-1",
+							id: "market-share-donut-1",
 							data: data,
 							rx: rx_, ry: ry_,
 							height: h_,
 							innerRadius: 0,
 							duration: 3000
 						});
-						d3.selectAll("#marketing-share-donut-1 .percent")
+						d3.selectAll("#market-share-donut-1 .percent")
 						.style("display", "initial");
 					}, 1000);
 				});
@@ -86,7 +91,7 @@
 		}
 
 		function graphViz2 () {
-			d3.json("data/marketingShare2.json", function (error, root) {
+			d3.json("data/marketShare2.json", function (error, root) {
 
 				// Datos
 				var data = root.data;
@@ -104,21 +109,21 @@
 				}
 
 				// Creamos el svg
-				var svg = d3.select("#marketing-share-pie-2")
+				var svg = d3.select("#market-share-pie-2")
 				.append("svg")
 				.attr("width", 1000)
 				.attr("height", 700);
 
 				svg.append("g")
-				.attr("id", "marketing-share-donut-2");
+				.attr("id", "market-share-donut-2");
 
 				var x_ = 350,
-					y_ = 300,
-					rx_ = 315,
-					ry_ = 250,
+					y_ = 350,
+					rx_ = 250,
+					ry_ = 205,
 					h_ = 30;
 				ulnaris.D3.buildDonut3D({
-					id: "marketing-share-donut-2",
+					id: "market-share-donut-2",
 					data: onesData,
 					x: x_, y: y_,
 					rx: rx_, ry: ry_,
@@ -126,12 +131,12 @@
 					innerRadius: 0
 				});
 
-				d3.selectAll("#marketing-share-donut-2 .percent")
+				d3.selectAll("#market-share-donut-2 .percent")
 				.style("display", "none");
 
 				callbacks.push(function () {
 					ulnaris.D3.transitionDonut3D({
-						id: "marketing-share-donut-2",
+						id: "market-share-donut-2",
 						data: onesData,
 						rx: rx_, ry: ry_,
 						height: h_,
@@ -142,14 +147,14 @@
 
 					setTimeout(function () {
 						ulnaris.D3.transitionDonut3D({
-							id: "marketing-share-donut-2",
+							id: "market-share-donut-2",
 							data: data,
 							rx: rx_, ry: ry_,
 							height: h_,
 							innerRadius: 0,
 							duration: 3000
 						});
-						d3.selectAll("#marketing-share-donut-2 .percent")
+						d3.selectAll("#market-share-donut-2 .percent")
 						.style("display", "initial");
 					}, 1000);
 				});
@@ -157,7 +162,7 @@
 		}
 
 		// Cuando se muestra la diapositiva
-		Reveal.addEventListener("marketing-share-bu-state", function() {
+		Reveal.addEventListener("market-share-bu-state", function() {
 			for (var i = 0; i < callbacks.length; i++) {
 				callbacks[i]();
 			};

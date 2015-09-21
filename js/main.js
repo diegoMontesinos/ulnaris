@@ -18,7 +18,7 @@ var slidesSequence = [
 	"perspectivas",
 	"crecimiento-ti",
 	"ingram-micro-market-share",
-	"marketing-share-bu",
+	"market-share-bu",
 	"bussiness-market-share",
 	"escenario-para-negocios-tic",
 	"compromisos",

@@ -1,0 +1,28 @@
+#market-share-bu .ulnaris-title{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+#market-share-pie-1 {
+	position: absolute;
+	width: 700px;
+	top: 0px;
+	left: 0px;
+}
+
+#market-share-pie-1 .percent,
+#market-share-pie-1 .legend,
+#market-share-pie-2 .percent,
+#market-share-pie-2 .legend {
+	fill: #fff;
+	stroke: none;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#market-share-pie-2 {
+	position: absolute;
+	width: 700px;
+	top: 0px;
+	left: 1100px;
+}

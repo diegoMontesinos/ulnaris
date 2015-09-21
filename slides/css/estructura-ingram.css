@@ -1,0 +1,27 @@
+#estructura-ingram .step-container div {
+	position: center;
+	width: 100px;
+}
+
+#estructura-ingram .step-container div:nth-child(1) {
+	left: 100px;
+	top: 0px;
+}
+
+#estructura-ingram .step-container div:nth-child(2) {
+	left: 0px;
+	top: 0px;
+}
+
+#estructura-ingram .ulnaris-content {
+	font-size: 35px;
+}
+
+#estructura-ingram .ulnaris-title-center {
+	position: relative;
+	width: 100%;
+	top: 0px;
+	font-family: 'helvetica-neue-bold' !important;
+	text-align: center !important;
+	font-size: 60px !important;
+}
