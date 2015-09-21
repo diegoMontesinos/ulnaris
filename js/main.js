@@ -7,10 +7,16 @@ var slidesSequence = [
 	"be",
 	"ingram-micro-es",
 	"bienvenidos",
+	"global",
 	"lider-global-en-tecnologia",
 	"incomparable-alcance",
 	"billion-revenue",
-	"crecimiento-ti"
+	"capitalizando",
+	"valores",
+	"expectativas",
+	"perspectivas",
+	"crecimiento-ti",
+	"marketing"
 ];
 
 function main (debug) {

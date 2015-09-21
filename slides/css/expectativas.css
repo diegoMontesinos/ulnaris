@@ -1,0 +1,54 @@
+#expectativas .step-container div {
+	position: absolute;
+}
+
+#expectativas .step-container div:nth-child(1) {
+	width: 2048px;
+	left: 0px;
+	top: 0px;
+	z-index: -100;
+}
+
+#expectativas .step-container div:nth-child(2) {
+	width: 300px;
+	top: 300px !important;
+	left: 100px;
+}
+
+#expectativas .step-container div:nth-child(3) {
+	width: 300px;
+	top: 320px;
+	left: 100px;
+}
+
+#expectativas .ulnaris-title {
+	font-size: 80px !important;
+}
+
+#expectativas .ulnaris-content {
+	font-size: 75px !important;
+	text-align: left !important;
+}
+
+#expectativas .ulnaris-video {
+	width: 512px !important;
+	height: 768px !important;
+}
+
+#expectativas .ulnaris-video-fs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#expectativas .ulnaris-video-fullscreen-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
+}
