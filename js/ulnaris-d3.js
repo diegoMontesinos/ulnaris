@@ -9,7 +9,8 @@ function UlnarisD3 () {
 
 		// Escalas
 		var x = d3.scale.ordinal()
-		.rangeRoundBands([ 0, width ], .1);
+		.rangeRoundBands([ 0, width ], 0.45);
+		//.rangeRoundBands([ 0, width ], options.columnWidth);
 
 		var y = d3.scale.linear()
 		.rangeRound([ height, 0 ]);
@@ -53,7 +54,8 @@ function UlnarisD3 () {
 					return {
 						name: name,
 						y0: y0,
-						y1: y0 += +d.value[name]
+						y1: y0 += +d.value[name],
+						value: +d.value[name]
 					};
 				});
 				d.total = d.stackedValues[d.stackedValues.length - 1].y1;
@@ -90,8 +92,35 @@ function UlnarisD3 () {
 			.attr("height", function (d) { return y(d.y0) - y(d.y1); })
 			.style("fill", function (d) { return color(d.name); });
 
+			// Labels
+			var stackedlabels = svg.selectAll(".stackedLabel")
+			.data(data)
+			.enter().append("g")
+			.attr("class", "stackedLabel")
+			.attr("transform", function (d) {
+				return "translate(" + x(d.name) + ",0)";
+			});
+
+			stackedlabels.selectAll("text")
+			.data(function (d) { return d.stackedValues; })
+			.enter().append("text")
+			.style("fill", "#fff")
+			.style("font-size", "18px")
+			.attr("x", -45)
+			.attr("y", function (d) {
+				var height = y(d.y0) - y(d.y1)
+				return y(d.y1) + (height * 0.65);
+			})
+			.text(function (d) {
+				if(d.value > 0) {
+					return d.value + "%";
+				} else {
+					return "";
+				}
+			});
+
 			// Legends
-			var legend = svg.selectAll(".legend")
+			var legend = stacked.selectAll(".legend")
 			.data(color.domain().slice().reverse())
 			.enter().append("g")
 			.attr("class", "legend")

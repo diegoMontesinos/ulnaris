@@ -1,5 +1,5 @@
 <!-- CRECIMIENTO TI -->
-<section id="crecimiento-ti" data-autoslide="0" data-state="crecimiento-ti-state">
+<section id="crecimiento-ti" class="ulnaris-legals-blue" data-autoslide="0" data-state="crecimiento-ti-state">
 	<div class="step-container">
 
 		<!-- TITULO -->
@@ -17,6 +17,32 @@
 
 			<!-- SEGUNDA GRAFICA -->
 			<div id="crecimiento-ti-data-2" style="left: 954px; top: -35px; display: none;">
+				<div><span>Distribución de la facturación durante 1S2015</span></div>
+
+				<div class="total-qty" style="left: 130px;"><span>$69,605</span></div>
+				<div class="total-qty" style="left: 322px;"><span>$116,441</span></div>
+				<div class="total-qty" style="left: 530px;"><span>$29,786</span></div>
+				<div class="total-qty" style="left: 716px;"><span>$217,039</span></div>
+
+				<div style="width: 900px; top: 490px; font-size: 26px; left: 0px;">
+					<div class="total-percentage" style="left: -1px;">
+						<span>Pesos</span><span>Dólares</span>
+					</div>
+					<div class="total-percentage" style="left: 156px;">
+						<span>6.6%</span><span>-7.5%</span>
+					</div>
+					<div class="total-percentage" style="left: 360px;">
+						<span>3.5%</span><span>-10.2%</span>
+					</div>
+					<div class="total-percentage" style="left: 550px;">
+						<span>12.5%</span><span>-2.4%</span>
+					</div>
+					<div class="total-percentage" style="left: 752px;">
+						<span>-0.4%</span><span>-13.6%</span>
+					</div>
+
+					<div class="total-percentage" style="left: 114px; top: 36px; width: 737px; height: 4px; background: #fff;">
+				</div>
 			</div>
 		</div>
 	</div>
@@ -159,7 +185,7 @@
 						$("#crecimiento-ti-data-1 .label").fadeIn(duration);
 						setTimeout(function () {
 							$("#crecimiento-ti-data-1").animate({
-								left: "-=540"
+								left: "50"
 							}, 1000);
 						}, delay * 4);
 					}, delay);
@@ -169,12 +195,13 @@
 
 		function graphViz2 () {
 			ulnaris.D3.buildStackedBar({
-				container : "#crecimiento-ti-data-2",
-				width     : 960,
-				height    : 500,
-				margin    : {top: 20, right: 40, bottom: 30, left: 40},
-				jsonPath  : "data/crecimientoTI2.json",
-				onload    : function (svg, x, y, color) {
+				container   : "#crecimiento-ti-data-2",
+				width       : 960,
+				height      : 400,
+				margin      : { top: 20, right: 40, bottom: 30, left: 40 },
+				columnWidth : 0.45,
+				jsonPath    : "data/crecimientoTI2.json",
+				onload      : function (svg, x, y, color) {
 
 					// Quitamos el eje
 					svg.selectAll(".axis.y")
@@ -184,23 +211,51 @@
 					callbacks.push(function () {
 
 						// Seleccioamos las barras
-						var stacked = svg.selectAll(".stackedValue");
+						var stacked = svg.selectAll(".stackedValue rect");
+						var stackedLabel = svg.selectAll(".stackedLabel text");
 
-						stacked.selectAll("rect")
-						.attr("height", function (d) { return 0; })
-						.attr("y", function (d) { return 450; });
+						stacked
+						.attr("height", function (d) {
+							if(d.y1) { return 0; } else { return 18; }
+						})
+						.attr("y", function (d) {
+							if(d.y1) { return 350; }
+						});
+
+						$(".total-qty").hide();
+
+						stackedLabel
+						.attr("y", function (d) { return 350; })
 
 						setTimeout(function () {
 							$("#crecimiento-ti-data-2").fadeIn(600, function () {
 
 								// Animate
 								var delay = 500, duration = 3000;
-								stacked.selectAll("rect")
+
+								stacked
 								.transition()
 								.delay(delay)
 								.duration(duration)
-								.attr("y", function (d) { return y(d.y1); })
-								.attr("height", function (d) { return y(d.y0) - y(d.y1); })
+								.attr("y", function (d) {
+									if(d.y1) { return y(d.y1); }
+								})
+								.attr("height", function (d) {
+									if(d.y1) { return y(d.y0) - y(d.y1); } else { return 18; }
+								});
+
+								stackedLabel
+								.transition()
+								.delay(delay)
+								.duration(duration)
+								.attr("y", function (d) {
+									var height = y(d.y0) - y(d.y1)
+									return y(d.y1) + (height * 0.65);
+								});
+
+								setTimeout(function () {
+									$(".total-qty").fadeIn(800);
+								}, delay + duration);
 							});
 						}, 5000);
 					});
@@ -208,7 +263,6 @@
 			});
 		}
 
-		// Cuando se muestra la diapositiva
 		Reveal.addEventListener("crecimiento-ti-state", function() {
 			for (var i = 0; i < callbacks.length; i++) {
 				callbacks[i]();

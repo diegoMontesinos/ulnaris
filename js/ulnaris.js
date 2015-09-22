@@ -57,6 +57,21 @@ function Ulnaris () {
 			// Manejador de cambio de diapositiva
 			Reveal.addEventListener("slidechanged", function( event ) {
 
+				// Seteamos los legales
+				$("#legals").hide();
+				var hasWhiteL = $(event.currentSlide).hasClass("ulnaris-legals-white");
+				var hasBlueL = $(event.currentSlide).hasClass("ulnaris-legals-blue");
+				if(hasWhiteL) {
+					$("#legals").removeClass("legals-blue");
+					$("#legals").addClass("legals-white");
+					$("#legals").show();
+				}
+				else if(hasBlueL) {
+					$("#legals").removeClass("legals-white");
+					$("#legals").addClass("legals-blue");
+					$("#legals").show();
+				}
+
 				// Seteamos los videos
 				for (var i = 0; i < videos.length; i++) {
 
@@ -126,7 +141,7 @@ function Ulnaris () {
 
 	function getKeboardConfig (useMyo) {
 		document.body.addEventListener("keypress", function (event) {
-			console.log(event.which);
+			//console.log(event.which);
 		}, false);
 
 		var keyboard = {
