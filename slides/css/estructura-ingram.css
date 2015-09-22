@@ -14,8 +14,9 @@
 }
 
 #estructura-ingram .step-container div:nth-child(2) {
-	left: 1024px;
-	top: 150px;
+	width: 150px !important;
+	left: 947px;
+	top: 160px;
 }
 
 #estructura-ingram .step-container div:nth-child(3) {

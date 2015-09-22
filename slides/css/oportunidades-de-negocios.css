@@ -1,3 +1,11 @@
-#oportunidades-de-negocios .imgOpo {
-	width: 70px;
+#oportunidades-de-negocios .step-container {
+	background: url(../../img/back00.png) 0 0 no-repeat;
+	-webkit-background-size: cover;
+	z-index: -100;
+}
+
+#oportunidades-de-negocios .step-container div:nth-child(3) {
+	width: 2048px;
+	left: 0px;
+	top: 600px !important;
 }
