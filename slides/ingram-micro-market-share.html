@@ -1,11 +1,116 @@
 <!-- Ingram Micro Market Share -->
-<section id="ingram-micro-market-share" data-autoslide="500">
+<section id="ingram-micro-market-share" class="ulnaris-legals-blue" data-autoslide="0" data-state="ingram-share-state">
 	<div class="step-container">
 
 		<!-- TITULO -->
-		<div class="fragment fade-in" data-autoslide="0">
-			<span class="ulnaris-title">Ingram Micro Market Share</span>
+		<div class="ulnaris-title">
+			<span>Ingram Micro Market Share</span>
 		</div>
 
+		<!-- CONTENIDO -->
+		<div class="ulnaris-content" style="top: 55px;">
+
+			<!-- PIE 1 -->
+			<div id="ingram-share-pie-1">
+				<div><span>Facturación 1S14: $21,425 millones de pesos</span></div>
+			</div>
+
+			<!-- PIE 2 -->
+			<div id="ingram-share-pie-2">
+				<div><span>Facturación 1S15: $23,425 millones de pesos</span></div>
+			</div>
+
+			<!-- FUENTE -->
+			<div>
+				<span style="font-weight: bold;">Fuente:</span>
+				<span>Select. "Modelo de la oferta TIC". Agosto 2015</span>
+			</div>
+		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	(function () {
+		var callbacks = [];
+		function makePie(jsonPath, n) {
+			d3.json(jsonPath, function (error, root) {
+
+				// Datos
+				var data = root.data;
+				var onesData = data.map(function (d) { return { label: d.label, value: d.value }; });
+
+				// Creamos una paleta de colores
+				var color = d3.scale.category20();
+				color.domain(data.map(function (d) { return d.label }));
+
+				// Agregamos los col
+				for (var i = 0; i < data.length; i++) {
+					data[i].color = color(data[i].label);
+					onesData[i].color = color(data[i].label);
+					onesData[i].value = "1";
+				}
+
+				// Creamos el svg
+				var svg = d3.select("#ingram-share-pie-" + n)
+				.append("svg")
+				.attr("width", 1000)
+				.attr("height", 700);
+
+				svg.append("g")
+				.attr("id", "ingram-market-share-donut-" + n);
+
+				var x_ = 350,
+					y_ = 350,
+					rx_ = 240,
+					ry_ = 200,
+					h_ = 15;
+				ulnaris.D3.buildDonut3D({
+					id: "ingram-market-share-donut-" + n,
+					data: onesData,
+					x: x_, y: y_,
+					rx: rx_, ry: ry_,
+					height: h_,
+					innerRadius: 0
+				});
+
+				d3.selectAll("#ingram-market-share-donut-" + n + " .percent")
+				.style("display", "none");
+
+				callbacks.push(function () {
+					ulnaris.D3.transitionDonut3D({
+						id: "ingram-market-share-donut-" + n,
+						data: onesData,
+						rx: rx_, ry: ry_,
+						height: h_,
+						innerRadius: 0,
+						duration: 1
+					});
+
+
+					setTimeout(function () {
+						ulnaris.D3.transitionDonut3D({
+							id: "ingram-market-share-donut-" + n,
+							data: data,
+							rx: rx_, ry: ry_,
+							height: h_,
+							innerRadius: 0,
+							duration: 3000
+						});
+						d3.selectAll("#ingram-market-share-donut-" + n + " .percent")
+						.style("display", "initial");
+					}, 1000);
+				});
+			});
+		}
+
+		// Cuando se muestra la diapositiva
+		Reveal.addEventListener("ingram-share-state", function() {
+			for (var i = 0; i < callbacks.length; i++) {
+				callbacks[i]();
+			};
+		});
+
+		makePie("data/ingramMarketShare1.json", 1);
+		makePie("data/ingramMarketShare2.json", 2);
+	})();
+</script>

@@ -1,0 +1,16 @@
+{
+	"name" : "Facturación 1S15: $23,425 millones de pesos",
+	"data" : [
+		{ "label": "INGRAM", "value": "24.4" },
+		{ "label": "Compusoluciones", "value": "8.0" },
+		{ "label": "Avnet", "value": "7.6" },
+		{ "label": "Exel del Norte", "value": "7.2" },
+		{ "label": "CT Internacional", "value": "6.5" },
+		{ "label": "CVA", "value": "5.3" },
+		{ "label": "TEAM", "value": "5.3" },
+		{ "label": "DC Mayorista", "value": "3.6" },
+		{ "label": "PCH Mayoreo", "value": "3.5" },
+		{ "label": "Anixter", "value": "3.0" },
+		{ "label": "Otros", "value": "25.5" }
+	]
+}

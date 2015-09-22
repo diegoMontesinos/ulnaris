@@ -1,13 +1,31 @@
-#market-share-bu .ulnaris-title{
+#market-share-bu .ulnaris-title {
 	position: absolute;
 	top: 0px;
 	left: 0px;
 }
-#market-share-pie-1 {
+
+#market-share-pie-1,
+#market-share-pie-2 {
 	position: absolute;
-	width: 700px;
+}
+
+#market-share-pie-1 div,
+#market-share-pie-2 div {
+	position: absolute;
+	font-size: 28px;
+	top: 55px;
+	left: 75px;
+	text-align: center !important;
+}
+
+#market-share-pie-1 {
 	top: 0px;
 	left: 0px;
+}
+
+#market-share-pie-2 {
+	top: 0px;
+	left: 1024px;
 }
 
 #market-share-pie-1 .percent,
@@ -25,4 +43,12 @@
 	width: 700px;
 	top: 0px;
 	left: 1100px;
+}
+
+#market-share-bu .ulnaris-content div:nth-child(3) {
+	position: absolute;
+	top: 609px;
+	left: 1440px;
+	font-size: 21px;
+	width: 506px;
 }
