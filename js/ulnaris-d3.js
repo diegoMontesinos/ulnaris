@@ -9,14 +9,13 @@ function UlnarisD3 () {
 
 		// Escalas
 		var x = d3.scale.ordinal()
-		.rangeRoundBands([ 0, width ], 0.45);
-		//.rangeRoundBands([ 0, width ], options.columnWidth);
+		.rangeRoundBands([ 0, width ], options.columnWidth);
 
 		var y = d3.scale.linear()
 		.rangeRound([ height, 0 ]);
 
 		// Paleta de colores
-		var color = d3.scale.category10();
+		var color = options.colors;
 
 		// Ejes
 		var xAxis = d3.svg.axis()
