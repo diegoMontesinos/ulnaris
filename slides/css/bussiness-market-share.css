@@ -1,0 +1,43 @@
+#bussiness-market-data {
+	position: absolute;
+	top: 0px;
+	left: 400px;
+}
+
+#bussiness-market-data .total-qty {
+	position: absolute;
+	font-size: 26px;
+	top: -15px;
+}
+
+#bussiness-market-data .legend > text {
+	stroke: none;
+	fill: #FFF;
+	font-size: 19px;
+}
+
+#bussiness-market-data .axis {
+	stroke: #FFF;
+	fill: none;
+	stroke-width: 2px;
+	font-size: 20px;
+}
+
+#bussiness-market-data .axis.y .tick,
+#bussiness-market-data .axis.y path {
+	display: none;
+}
+
+#bussiness-market-data .axis.y text {
+	font-size: 32px;
+	fill: #FFF;
+	stroke: none;
+}
+
+#bussiness-market-share .ulnaris-content > div:nth-child(2) {
+	position: absolute;
+	top: 562px;
+	left: 1380px;
+	font-size: 21px;
+	width: 506px;
+}

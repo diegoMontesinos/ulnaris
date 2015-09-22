@@ -1,17 +1,25 @@
 <!-- BUSSINESS MARKET -->
-<section id="bussiness-market-share" data-autoslide="0" data-state="bussiness-market-state">
+<section id="bussiness-market-share" class="ulnaris-legals-blue" data-autoslide="0" data-state="bussiness-market-state">
 	<div class="step-container">
 
 		<!-- TITULO -->
-		<div class="ulnaris-title" style="top: 0px; font-size: 50px !important;">
+		<div class="ulnaris-title">
 			<span>SW Business Market Share</span>
 		</div>
 
 		<!-- CONTENIDO -->
-		<div class="ulnaris-content">
+		<div class="ulnaris-content" style="top: 118px;">
 
 			<!-- GRAFICA -->
-			<div id="bussiness-market-data" style="left: 590px; top: -35px;">
+			<div id="bussiness-market-data">
+				<div class="total-qty" style="left: 275px;"><span>$2,238</span></div>
+				<div class="total-qty" style="left: 586px;"><span>$2,384</span></div>
+			</div>
+
+			<!-- FUENTE -->
+			<div>
+				<span style="font-weight: bold;">Fuente:</span>
+				<span>Select. "Modelo de la oferta TIC". Agosto 2015</span>
 			</div>
 		</div>
 	</div>
@@ -20,40 +28,82 @@
 <script type="text/javascript">
 	(function () {
 		ulnaris.D3.buildStackedBar({
-			container : "#bussiness-market-data",
-			width     : 460,
-			height    : 500,
-			margin    : {top: 20, right: 40, bottom: 30, left: 40},
-			jsonPath  : "data/bussinessMarket.json",
-			onload    : function (svg, x, y, color) {
+			container   : "#bussiness-market-data",
+			width       : 1000,
+			height      : 580,
+			margin      : {top: 20, right: 150, bottom: 30, left: 100},
+			columnWidth : 0.45,
+			colors      : d3.scale.category10(),
+			jsonPath    : "data/bussinessMarket.json",
+			onload      : function (svg, x, y, color) {
 
-				// Quitamos el eje
+				// Editamos Y
 				svg.selectAll(".axis.y")
-				.style("display", "none");
+				.append("text")
+				.attr("class", "text-axis-y")
+				.attr("transform", "rotate(-90)")
+				.attr("y", 6)
+				.attr("dy", ".91em")
+				.style("text-anchor", "end")
+				.text("Cifras en millones de pesos");
+
+				// Expandemos
+				svg.selectAll(".legend")
+				.attr("transform", function (d, i) {
+					return "translate(0," + i * 50 + ")";
+				});
 
 				// Agregamos el callback
 				Reveal.addEventListener("bussiness-market-state", function () {
 
-					// Seleccioamos las barras
-					var stacked = svg.selectAll(".stackedValue");
+					$(".total-qty").hide();
 
-					stacked.selectAll("rect")
-					.attr("height", function (d) { return 0; })
-					.attr("y", function (d) { return 450; });
+					// Seleccioamos las barras
+					var stacked = svg.selectAll(".stackedValue rect");
+					var stackedLabel = svg.selectAll(".stackedLabel text");
+
+					stacked
+					.attr("height", function (d) {
+						if(d.y1) { return 0; } else { return 18; }
+					})
+					.attr("y", function (d) {
+						if(d.y1) { return 530; }
+					});
+
+					stackedLabel
+					.attr("y", function (d) { return 530; })
 
 					setTimeout(function () {
 						$("#crecimiento-ti-data-2").fadeIn(600, function () {
 
 							// Animate
-							var delay = 100, duration = 3000;
-							stacked.selectAll("rect")
+							var delay = 10, duration = 3000;
+							
+							stacked
 							.transition()
 							.delay(delay)
 							.duration(duration)
-							.attr("y", function (d) { return y(d.y1); })
-							.attr("height", function (d) { return y(d.y0) - y(d.y1); })
+							.attr("y", function (d) {
+								if(d.y1) { return y(d.y1); }
+							})
+							.attr("height", function (d) {
+								if(d.y1) { return y(d.y0) - y(d.y1); } else { return 18; }
+							});
+
+							stackedLabel
+							.transition()
+							.delay(delay)
+							.duration(duration)
+							.attr("y", function (d) {
+								var height = y(d.y0) - y(d.y1)
+								return y(d.y1) + (height * 0.65);
+							});
+
+							setTimeout(function () {
+								$(".total-qty").fadeIn(800);
+							}, delay + duration);
 						});
-					}, 100);
+					}, 10);
 				});
 			}
 		});

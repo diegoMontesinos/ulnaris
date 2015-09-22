@@ -1,0 +1,47 @@
+#ingram-share-pie-1,
+#ingram-share-pie-2 {
+	position: absolute;
+}
+
+#ingram-share-pie-1 div,
+#ingram-share-pie-2 div {
+	position: absolute;
+	font-size: 30px;
+	top: 68px;
+	left: 75px;
+}
+
+#ingram-share-pie-1 {
+	top: 0px;
+	left: 0px;
+}
+
+#ingram-share-pie-2 {
+	top: 0px;
+	left: 1024px;
+}
+
+#ingram-share-pie-1 .percent,
+#ingram-share-pie-1 .legend,
+#ingram-share-pie-2 .percent,
+#ingram-share-pie-2 .legend {
+	fill: #fff;
+	stroke: none;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#ingram-share-pie-2 {
+	position: absolute;
+	width: 700px;
+	top: 0px;
+	left: 1100px;
+}
+
+#ingram-micro-market-share .ulnaris-content div:nth-child(3) {
+	position: absolute;
+	top: 609px;
+	left: 1440px;
+	font-size: 21px;
+	width: 506px;
+}

@@ -1,0 +1,16 @@
+{
+	"name" : "Facturación 1S14: $21,425 millones de pesos",
+	"data" : [
+		{ "label": "INGRAM", "value": "23.9" },
+		{ "label": "Compusoluciones", "value": "7.3" },
+		{ "label": "Avnet", "value": "5.1" },
+		{ "label": "Exel del Norte", "value": "8.7" },
+		{ "label": "CT Internacional", "value": "6.2" },
+		{ "label": "CVA", "value": "5.0" },
+		{ "label": "TEAM", "value": "4.9" },
+		{ "label": "DC Mayorista", "value": "3.8" },
+		{ "label": "PCH Mayoreo", "value": "3.6" },
+		{ "label": "Anixter", "value": "2.8" },
+		{ "label": "Otros", "value": "28.7" }
+	]
+}
