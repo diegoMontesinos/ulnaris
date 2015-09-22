@@ -134,9 +134,45 @@ div.ulnaris-video-fs video {
 
 #legals {
 	position: absolute;
-	top: 736px;
-	left: 910px;
+	top: 748px;
+	left: -23px;
 	z-index: 100;
 	font-family: 'helvetica-neue' !important;
-	font-size: 18px;
+	font-size: 20px;
+}
+
+#legals-logo {
+	width: 208px;
+	height: 41px;
+	position: absolute;
+	top: -30px;
+	left: 38px;
+}
+
+#legals-txt {
+	position: absolute;
+	width: 1600px;
+	text-align: initial !important;
+	top: -13px;
+	left: 272px;
+}
+
+.legals-white #legals-logo {
+	background: url(../img/logo-ingram-blanco.png);
+	background-size: 208px 40px;
+	background-repeat: no-repeat;
+}
+
+.legals-white #legals-txt {
+	color: "#FFF";
+}
+
+.legals-blue #legals-logo {
+	background: url(../img/logo-ingram-azul.png);
+	background-size: 208px 40px;
+	background-repeat: no-repeat;
+}
+
+.legals-blue #legals-txt {
+	color: "#FFF";
 }

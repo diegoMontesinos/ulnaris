@@ -5,14 +5,17 @@
 #crecimiento-ti-data-1,
 #crecimiento-ti-data-1 > div,
 #crecimiento-ti-data-1 > svg,
+#crecimiento-ti-data-2,
+#crecimiento-ti-data-2 > div,
+#crecimiento-ti-data-2 > svg,
 #crecimiento-ti-data-1 .label {
 	position: absolute;
 }
 
 #crecimiento-ti-data-1 > div {
 	font-size: 28px;
-	top: 0px;
-	left: 0px;
+	top: -20px;
+	left: 150px;
 }
 
 #crecimiento-ti-data-1 .label {
@@ -44,6 +47,40 @@
 #crecimiento-ti-data-2 {
 	width: 1200px;
 	position: absolute;
+}
+
+#crecimiento-ti-data-2 > div:nth-child(1) {
+	font-size: 28px;
+	top: -20px;
+	left: 150px;
+}
+
+.total-percentage {
+	width: 122px;
+	position: absolute;
+}
+
+.total-percentage span {
+	position: absolute;
+	left: 0px;
+}
+
+.total-percentage span:nth-child(1) {
+	top: 0px;
+}
+
+.total-percentage span:nth-child(2) {
+	top: 46px;
+}
+
+#crecimiento-ti-data-2 > div {
+	font-size: 26px;
+	top: 40px;
+}
+
+#crecimiento-ti-data-2 svg {
+	top: 55px;
+	left: 0px;
 }
 
 #crecimiento-ti-data-2 text {
