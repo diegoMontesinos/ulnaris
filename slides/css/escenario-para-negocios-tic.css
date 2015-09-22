@@ -1,3 +1,8 @@
+#escenario-para-negocios-tic .step-container {
+	background: url(../../img/back01.png) 0 0 no-repeat;
+	-webkit-background-size: cover;
+}
+
 #escenario-para-negocios-tic .step-container div {
 	position: absolute;
 }
@@ -6,14 +11,14 @@
 	position: absolute;
 	width: 800px;
 	left: 100px;
-	top: 50px;
+	top: 100px !important;
 }
 
 #listDos {
 	position: absolute;
 	width: 800px;
 	left: 1124px;
-	top: 50px;
+	top: 100px !important;
 }
 
 #escenario-para-negocios-tic .ulnaris-content {

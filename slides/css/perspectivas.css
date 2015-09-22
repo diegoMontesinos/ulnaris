@@ -1,3 +1,7 @@
+#perspectivas .step-container {
+	background: url(../../img/back01.png) 0 0 no-repeat;
+	-webkit-background-size: cover;
+}
 
 #listUno {
 	position: absolute;
@@ -9,8 +13,8 @@
 #listDos {
 	position: absolute;
 	width: 800px;
-	left: 1124px;
-	top: 0px;
+	left: 1124px !important;
+	top: 0px !important;
 }
 
 #perspectivas .ulnaris-content {

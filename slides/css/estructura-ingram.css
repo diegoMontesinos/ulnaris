@@ -1,7 +1,12 @@
+#estructura-ingram .step-container {
+	background: url(../../img/back01.png) 0 0 no-repeat;
+	-webkit-background-size: cover;
+}
+
 #estructura-ingram .step-container div {
 	position: absolute;
 	text-align: center;
-	width: 100px;
+	width: 130px;
 }
 
 #estructura-ingram .step-container div:nth-child(1) {
@@ -14,63 +19,70 @@
 }
 
 #estructura-ingram .step-container div:nth-child(3) {
-	left: 168px;
+	left: 100px;
 	top: 380px;
 }
 
 #estructura-ingram .step-container div:nth-child(4) {
-	left: 336px;
+	left: 255px;
 	top: 380px;
 }
 
 #estructura-ingram .step-container div:nth-child(5) {
-	left: 504px;
+	left: 410px;
 	top: 380px;
 }
 
 #estructura-ingram .step-container div:nth-child(6) {
-	left: 672px;
+	left: 565px;
 	top: 380px;
 }
 
 #estructura-ingram .step-container div:nth-child(7) {
-	left: 840px;
+	left: 720px;
 	top: 380px;
 }
 
 #estructura-ingram .step-container div:nth-child(8) {
-	left: 1008px;
+	left: 875px;
 	top: 380px;
 }
 
 #estructura-ingram .step-container div:nth-child(9) {
-	left: 1176px;
+	left: 1030px;
 	top: 380px;
 }
 
 #estructura-ingram .step-container div:nth-child(10) {
-	left: 1344px;
+	left: 1185px;
 	top: 380px;
 }
 
 #estructura-ingram .step-container div:nth-child(11) {
-	left: 1512px;
+	left: 1340px;
 	top: 380px;
 }
 
 #estructura-ingram .step-container div:nth-child(12) {
-	left: 1680px;
+	left: 1495px;
 	top: 380px;
 }
 
 #estructura-ingram .step-container div:nth-child(13) {
-	left: 1848px;
+	left: 1650px;
 	top: 380px;
 }
 
 #estructura-ingram .step-container div:nth-child(14) {
-	left: 2016px;
+	left: 1805px;
 	top: 380px;
+}
+
+#estructura-ingram .step-container div:nth-child(15) {
+	width: 780px !important;
+	left: 1170px;
+	top: 340px;
+	z-index: 2;
 }
 
 #estructura-ingram .ulnaris-content {
