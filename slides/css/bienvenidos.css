@@ -1,65 +1,40 @@
-#bienvenidos .step-container div {
+#bienvenidos .step-container > div {
 	position: absolute;
 }
 
-#bienvenidos .step-container div:nth-child(1) {
-	width: 1024px;
-	left: 0px;
+#bienvenidos .step-container > div:nth-child(1) {
 	z-index: -100;
 }
 
-#bienvenidos .step-container div:nth-child(2) {
+#bienvenidos .step-container > div:nth-child(2) {
 	width: 400px;
 	top: 100px !important;
 	left: 1000px;
 }
 
-#bienvenidos .step-container div:nth-child(3) {
+#bienvenidos .step-container > div:nth-child(3) {
 	width: 150px;
 	left: 1000px;
 	top: 300px;
 }
 
-#bienvenidos .step-container div:nth-child(4) {
+#bienvenidos .step-container > div:nth-child(4) {
 	width: 800px;
-	left: 1150px;
-	top: 230px;
+	left: 1182px;
+	top: 330px;
 }
 
-#bienvenidos .step-container div:nth-child(5) {
+#bienvenidos .step-container > div:nth-child(5) {
 	width: 800px;
 	left: 1000px;
-	top: 350px;
+	top: 480px;
 }
 
-#bienvenidos .ulnaris-title {
-	font-size: 120px !important;
+#bienvenidos .ulnaris-title span {
+	font-size: 130px !important;
 }
 
-#bienvenidos .ulnaris-content {
+#bienvenidos .ulnaris-content span {
 	font-size: 70px !important;
-	text-align: left !important;
-}
-
-#bienvenidos .ulnaris-video {
-	width: 512px !important;
-	height: 768px !important;
-}
-
-#bienvenidos .ulnaris-video-fs {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-#bienvenidos .ulnaris-video-fullscreen-bg {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: -100;
+	font-weight: bold;
 }

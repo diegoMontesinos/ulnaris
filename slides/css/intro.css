@@ -1,39 +1,40 @@
-
-img {
-	width: 100%;
-	height: auto;
-}
-
 #intro .step-container {
 	background: url(../../img/intro-background.png) 0 0 no-repeat;
 	-webkit-background-size: cover;
 }
 
-#intro .step-container div {
+#intro .step-container > div {
 	position: absolute;
 }
 
-#intro .step-container div:nth-child(1) {
+#intro .step-container > div img {
+	width: 100%;
+	height: auto;
+}
+
+#intro .step-container > div:nth-child(1) {
 	width: 420px;
 	left: 200px;
 	top: 130px;
 }
 
-#intro .step-container div:nth-child(2) {
+#intro .step-container > div:nth-child(2) {
 	width: 170px;
 	left: 200px;
 	top: 300px;
 }
 
-#intro .ulnaris-title {
-	width: 650px;
-	left: 220px;
-	top: 55px;
-}
-
 #intro .ulnaris-content {
-	font-size: 42vpx !important;
-	width: 650px;
+	font-size: 58px !important;
 	left: 220px;
 	top: 500px;
+	width: 360px;
+}
+
+#intro .ulnaris-content span:nth-child(2) {
+	position: absolute;
+	top: 65px;
+	left: 0px;
+	font-weight: bold;
+	font-size: 28px;
 }

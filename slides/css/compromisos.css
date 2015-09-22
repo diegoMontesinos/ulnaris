@@ -1,7 +1,3 @@
-#compromisos .step-container div {
-	position: absolute;
-}
-
 #compromisos .step-container div:nth-child(1) {
 	width: 2048px;
 	left: 0px;
@@ -28,22 +24,4 @@
 #compromisos .ulnaris-content {
 	font-size: 75px !important;
 	text-align: left !important;
-}
-
-#compromisos .ulnaris-video-fs {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-#compromisos .ulnaris-video-fullscreen-bg {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: -100;
 }

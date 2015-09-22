@@ -3,10 +3,8 @@
 	<div class="step-container" style="position: initial;">
 
 		<!-- VIDEO BACKGROUND -->
-		<div>
-			<video class="ulnaris-video-fs">
-				<source src="video/logros.webm" type="video/webm">
-			</video>
+		<div class="ulnaris-video-fs">
+			<video><source src="video/logros.webm" type="video/webm"></video>
 		</div>
 
 		<!-- LOGROS -->
@@ -16,14 +14,10 @@
 
 		<!-- NOTAS -->
 		<aside class="notes">
-			
 		</aside>
-
 	</div>
 </div>
 
 <script type="text/javascript">
-	(function () {
-		ulnaris.associateVideo("#logros video");
-	})();
+	ulnaris.associateVideo("#logros video");
 </script>

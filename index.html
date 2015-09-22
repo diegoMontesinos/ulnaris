@@ -21,11 +21,7 @@
 
 		<!-- REVEAL -->
 		<div class="reveal">
-			<div id="reveal-slides" class="slides">
-				<div id="legals">
-					Confidential and proprietary information of Ingram Micro Inc. — Do not distribute or duplicate without Ingram Micro's express written permission.
-				</div>
-			</div>
+			<div id="reveal-slides" class="slides"></div>
 		</div>
 
 		<!-- LIBRARIES JS -->
@@ -42,6 +38,10 @@
 		<script src="js/ulnaris-d3.js"></script>
 		<script src="js/ulnaris.js"></script>
 		<script src="js/main.js"></script>
-		<script type="text/javascript">main(false);</script>
+		<script type="text/javascript">
+			$(document).ready(function () {
+				main(false);
+			});
+		</script>
 	</body>
 </html>

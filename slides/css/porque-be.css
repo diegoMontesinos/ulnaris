@@ -1,37 +1,28 @@
 
-img {
-	width: 100%;
-	height: auto;
-}
-
 #porque-be .step-container {
 	background: url(../../img/intro-background.png) 0 0 no-repeat;
 	-webkit-background-size: cover;
 }
 
-#porque-be .step-container div {
-	position: absolute;
-}
-
-#porque-be .step-container div:nth-child(1) {
+#porque-be .step-container > div:nth-child(1) {
 	width: 420px;
 	left: 200px;
 	top: 130px;
 }
 
-#porque-be .step-container div:nth-child(2) {
+#porque-be .step-container > div:nth-child(2) {
 	width: 170px;
 	left: 200px;
 	top: 300px;
 }
 
-#porque-be .step-container div:nth-child(3) {
+#porque-be .step-container > div:nth-child(3) {
 	width: 170px;
 	left: 550px;
 	top: 300px;
 }
 
-#porque-be .step-container div:nth-child(4) {
+#porque-be .step-container > div:nth-child(4) {
 	left: 750px;
 	top: 355px;
 }
@@ -42,7 +33,7 @@ img {
 	top: 55px;
 }
 #porque-be .ulnaris-titleb {
-	font-family: 'helvetica-neue-bold' !important;
+	font-weight: bold;
 	text-align: left !important;
 	font-size: 70px !important;
 	left: 0px;

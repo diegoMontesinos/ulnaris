@@ -19,7 +19,7 @@ var slidesSequence = [
 	"crecimiento-ti",
 	"ingram-micro-market-share",
 	"market-share-bu",
-	"bussiness-market-share",
+	"bussiness-market-share"
 	"escenario-para-negocios-tic",
 	"compromisos",
 	"compromisos2",
@@ -42,7 +42,7 @@ function main (debug) {
 	ulnaris = new Ulnaris();
 	ulnaris.init({
 		slides: slidesSequence,
-		myo: true,
+		myo: false,
 		debug: true,
 		onError: function (error) {
 			console.log(error);
