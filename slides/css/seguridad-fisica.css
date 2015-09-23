@@ -1,0 +1,15 @@
+#seguridad-fisica .step-container {
+	background: url(../../img/seguridad-fisica.png) 0 0 no-repeat;
+	-webkit-background-size: cover;
+	z-index: -1000;
+	font-family: 'helvetica-neue-bold' !important;
+}
+
+#seguridad-fisica .step-container > div:nth-child(1) {
+}
+
+#seguridad-fisica .step-container > div:nth-child(2) {
+	color: #FFF;
+	left: 880px;
+	top: 600px !important;
+}

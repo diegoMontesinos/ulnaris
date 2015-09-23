@@ -1,0 +1,27 @@
+#movilidad .step-container > div {
+	position: absolute;
+}
+
+#movilidad .step-container > div:nth-child(1) {
+	z-index: -100;
+}
+
+#movilidad .step-container > div:nth-child(2) {
+	top: 100px !important;
+	left: 100px;
+}
+
+#movilidad .step-container > div:nth-child(3) {
+	width: 150px;
+	left: 80px !important;
+	top: 250px;
+}
+
+#movilidad .ulnaris-title span {
+	font-size: 130px !important;
+}
+
+#movilidad .ulnaris-content span {
+	font-size: 70px !important;
+	font-weight: bold;
+}

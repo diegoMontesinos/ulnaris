@@ -1,0 +1,27 @@
+#estrategia2016 .step-container {
+	background: url(../../img/mercados-atencion-valor.png) 0 0 no-repeat;
+	-webkit-background-size: cover;
+	z-index: -1000;
+	font-family: 'helvetica-neue-bold' !important;
+}
+
+#estrategia2016 .step-container > div:nth-child(1) {
+}
+
+#estrategia2016 .step-container > div:nth-child(2) {
+	color: #FFF;
+	left: 180px;
+	top: 600px !important;
+}
+
+#estrategia2016 .step-container > div:nth-child(3) {
+	color: #FFF;
+	left: 880px;
+	top: 600px !important;
+}
+
+#estrategia2016 .step-container > div:nth-child(4) {
+	color: #FFF;
+	left: 1600px;
+	top: 600px !important;
+}

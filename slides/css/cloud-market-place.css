@@ -1,0 +1,15 @@
+#cloud-market-place .step-container {
+	background: url(../../img/back00.png) 0 0 no-repeat;
+	-webkit-background-size: cover;
+	z-index: -1000;
+	font-family: 'helvetica-neue-bold' !important;
+}
+
+#cloud-market-place .step-container > div:nth-child(1) {
+}
+
+#cloud-market-place .step-container > div:nth-child(2) {
+	color: #FFF;
+	left: 880px;
+	top: 600px !important;
+}
