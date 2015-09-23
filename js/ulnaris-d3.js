@@ -299,6 +299,80 @@ function UlnarisD3 () {
 		.text(getPercent);
 	};
 
+	this.buildLineChart = function (options) {
+
+		// Dimensiones
+		var margin = options.margin;
+		var width  = options.width - margin.left - margin.right;
+		var height = options.height - margin.top - margin.bottom;
+
+		// Escalas
+		var x = d3.scale.ordinal()
+		.rangeRoundBands([ 0, width ], options.rangeWidth);
+
+		var y = d3.scale.linear()
+		.range([ height, 0 ]);
+
+		// Ejes
+		var xAxis = d3.svg.axis()
+		.scale(x)
+		.orient("bottom");
+
+		var yAxis = d3.svg.axis()
+		.scale(y)
+		.orient("left");
+
+		// Linea
+		var lineFunc = d3.svg.line()
+		.x(function (d) {
+			return x(d.label);
+		})
+		.y(function (d) {
+			return y(d.value);
+		});
+
+		// SVG
+		var svg = d3.select(options.container).append("svg")
+		.attr("width", width + margin.left + margin.right)
+		.attr("height", height + margin.top + margin.bottom);
+
+		// Grafica
+		svg = svg.append("g")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+		// Cargamos los datos
+		var linesData = options.linesData;
+
+		// Dominio
+		x.domain(linesData[0].map(function (d) { return d.label }));
+		y.domain([
+			d3.min(linesData, function (d) { return d3.min(d, function (d) { return d.value })}),
+			d3.max(linesData, function (d) { return d3.max(d, function (d) { return d.value })}),
+		]);
+
+		// Ejes
+		svg.append("g")
+		.attr("class", "x axis")
+		.attr("transform", "translate(0," + height + ")")
+		.call(xAxis);
+
+		svg.append("g")
+		.attr("class", "y axis")
+		.call(yAxis);
+
+		var linesPath = [];
+		for (var i = 0; i < linesData.length; i++) {
+			linesPath.push(
+				svg.append("path")
+				.datum(linesData[i])
+				.attr("class", "line-chart")
+				.attr("d", lineFunc)
+			);
+		}
+
+		return linesPath;
+	};
+
 	function pieTop (d, rx, ry, ir) {
 		if(d.endAngle - d.startAngle == 0 ) return "M 0 0";
 		var sx = rx*Math.cos(d.startAngle),
