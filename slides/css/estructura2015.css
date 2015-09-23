@@ -1,0 +1,26 @@
+#estructura2015 .step-container {
+	background: url(../../img/estructura2015.png) 0 0 no-repeat;
+	-webkit-background-size: cover;
+	z-index: -1000;
+	font-family: 'helvetica-neue-bold' !important;
+}
+
+#estructura2015 .step-container > div:nth-child(1) {
+}
+
+#estructura2015 .step-container > div:nth-child(2) {
+	left: 50px;
+	top: 10px !important;
+}
+
+#estructura2015 .step-container > div:nth-child(3) {
+	color: #FFF;
+	left: 880px;
+	top: 600px !important;
+}
+
+#estructura2015 .step-container > div:nth-child(4) {
+	color: #FFF;
+	left: 1600px;
+	top: 600px !important;
+}
