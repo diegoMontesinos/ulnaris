@@ -1,5 +1,5 @@
 <!-- INDICES MACROECONOMICOS -->
-<section id="indices-macroeconomicos" data-autoslide="0">
+<section id="indices-macroeconomicos" class="ulnaris-legals-blue" data-autoslide="0" data-state="indices-macroeconomicos-state">
 	<div class="step-container">
 
 		<!-- TITULO -->
@@ -11,17 +11,43 @@
 		<div class="ulnaris-content">
 
 			<!-- Grafica GDP -->
-			<div id="indices-macroeconomicos-gdp">
+			<div id="indices-macroeconomicos-gdp" style="left: 0px; top: 0px;">
+				<div><span>%GDP</span></div>
 			</div>
 
 			<!-- Grafica Inflation -->
-			<div id="indices-macroeconomicos-inflation">
+			<div id="indices-macroeconomicos-inflation" style="left: 810px; top: 0px;">
+				<div><span>Inflation</span></div>
+			</div>
+
+			<!-- Grafica Inflation -->
+			<div id="indices-macroeconomicos-government" style="left: 0px; top: 300px;">
+				<div><span>Government Expense<br>Annual growth rate</span></div>
+			</div>
+
+			<!-- Exchange Rate -->
+			<div id="indices-macroeconomicos-exchange" style="left: 810px; top: 300px;">
+				<div><span>Exchange Rate</span></div>
 			</div>
 		</div>
 	</div>
 </div>
 
 <style type="text/css">
+	#indices-macroeconomicos-gdp > div,
+	#indices-macroeconomicos-inflation > div,
+	#indices-macroeconomicos-government > div,
+	#indices-macroeconomicos-exchange > div{
+		position: absolute;
+		font-size: 20px;
+		top: 4px;
+		left: 200px;
+		text-align: center;
+	}
+
+	#indices-macroeconomicos .ulnaris-content > div {
+		position: absolute;
+	}
 
 	#indices-macroeconomicos .axis path,
 	#indices-macroeconomicos .axis line {
@@ -30,23 +56,11 @@
 		stroke-width: 3px;
 	}
 
-	#indices-macroeconomicos .gdpChart1 {
-	
-		stroke: #ff2600;
-		stroke-width: 4px;
-	}
-
-	#indices-macroeconomicos .gdpChart2 {
-		stroke: #0085cc;
-		stroke-width: 4px;
-	}
-
 	#indices-macroeconomicos .axis text {
 		stroke: none;
 		fill: #FFF;
-		font-size: 20px;
+		font-size: 16px;
 	}
-
 </style>
 
 <script type="text/javascript">
@@ -56,38 +70,143 @@
 		d3.json("data/indicesmacro.json", function (error, root) {
 
 			// GRAFICA GDP
-			var gdpChart = ulnaris.D3.buildLineChart({
+			var gdp = ulnaris.D3.buildLineChart({
 				container   : "#indices-macroeconomicos-gdp",
-				width       : 1000,
-				height      : 500,
+				width       : 662,
+				height      : 270,
 				margin      : { top: 20, right: 40, bottom: 30, left: 40 },
 				rangeWidth  : 0.4,
-				linesData   : [mergeData(root.gdp.line1), mergeData(root.gdp.line2)]
+				lines       : {
+					data: [
+						mergeData(root.gdp.line1),
+						mergeData(root.gdp.line2)
+					],
+					style: [
+						{ "stroke": "#ff2600", "fill": "none", "stroke-width": "4px" },
+						{ "stroke": "#0085cc", "fill": "none", "stroke-width": "4px" }
+					],
+					points: [
+						{ "fill" : "#ff2600", "stroke": "none", "font-size": "14px" },
+						{ "fill" : "#0085cc", "stroke": "none", "font-size": "14px"}
+					]
+				},
+				format : function (val) { return val + "%"; }
 			});
-
-			gdpChart[0]
-			.attr("class", "gdpChart2");
-
-			gdpChart[1]
-			.attr("class", "gdpChart1");
 
 			// Grafica Inflation
-			var inflationChart = ulnaris.D3.buildLineChart({
+			var inflation = ulnaris.D3.buildLineChart({
 				container   : "#indices-macroeconomicos-inflation",
-				width       : 1000,
-				height      : 500,
+				width       : 662,
+				height      : 270,
 				margin      : { top: 20, right: 40, bottom: 30, left: 40 },
 				rangeWidth  : 0.4,
-				linesData   : [mergeData(root.inflation.line1), mergeData(root.inflation.line2)]
+				lines       : {
+					data: [
+						mergeData(root.inflation.line1),
+						mergeData(root.inflation.line2)
+					],
+					style: [
+						{ "stroke": "#ff2600", "fill": "none", "stroke-width": "4px" },
+						{ "stroke": "#0085cc", "fill": "none", "stroke-width": "4px" }
+					],
+					points: [
+						{ "fill" : "#ff2600", "stroke": "none", "font-size": "14px" },
+						{ "fill" : "#0085cc", "stroke": "none", "font-size": "14px"}
+					]
+				},
+				format : function (val) { return val + "%"; }
 			});
 
-			inflationChart[0]
-			.attr("class", "gdpChart2");
+			// Government
+			var government = ulnaris.D3.buildLineChart({
+				container   : "#indices-macroeconomicos-government",
+				width       : 662,
+				height      : 270,
+				margin      : { top: 20, right: 40, bottom: 30, left: 40 },
+				rangeWidth  : 0.4,
+				lines       : {
+					data: [
+						mergeData(root.government.line1),
+						mergeData(root.government.line2),
+						mergeData(root.government.line3)
+					],
+					style: [
+						{ "stroke": "#3989c7", "fill": "none", "stroke-width": "4px" },
+						{ "stroke": "#ffe087", "fill": "none", "stroke-width": "4px" },
+						{ "stroke": "#d8b34b", "fill": "none", "stroke-width": "4px" }
+					],
+					points: [
+						{ "fill" : "#3989c7", "stroke": "none", "font-size": "14px" },
+						{ "fill" : "#ffe087", "stroke": "none", "font-size": "14px" },
+						{ "fill" : "#d8b34b", "stroke": "none", "font-size": "14px" }
+					]
+				},
+				format : function (val) { return val + "%"; }
+			});
 
-			inflationChart[1]
-			.attr("class", "gdpChart1");
+			// Exchange Rate
+			var exchange = ulnaris.D3.buildLineChart({
+				container   : "#indices-macroeconomicos-exchange",
+				width       : 662,
+				height      : 270,
+				margin      : { top: 20, right: 40, bottom: 30, left: 40 },
+				rangeWidth  : 0.4,
+				lines       : {
+					data: [
+						mergeData(root.exchange.line1),
+						mergeData(root.exchange.line2)
+					],
+					style: [
+						{ "stroke": "#ff2600", "fill": "none", "stroke-width": "4px" },
+						{ "stroke": "#0085cc", "fill": "none", "stroke-width": "4px" }
+					],
+					points: [
+						{ "fill" : "#ff2600", "stroke": "none", "font-size": "14px" },
+						{ "fill" : "#0085cc", "stroke": "none", "font-size": "14px"}
+					]
+				},
+				format : function (val) { return val + ""; }
+			});
+
+			function resetChart (chart) {
+				var resetFunc = d3.svg.line()
+				.x(function (d) { return chart.x(d.label); })
+				.y(function (d) { return 220; });
+
+				chart.svg.selectAll(".line-chart")
+				.attr("d", resetFunc);
+
+				chart.svg.selectAll(".label-value")
+				.attr("y", function (d) { return 240; });
+			}
+
+			function animateChart (chart, delay, duration) {
+				var lineFunc = d3.svg.line()
+				.x(function (d) { return chart.x(d.label); })
+				.y(function (d) { return chart.y(d.value); });
+
+				chart.svg.selectAll(".line-chart")
+				.transition()
+				.delay(delay)
+				.duration(duration)
+				.attr("d", lineFunc);
+
+				chart.svg.selectAll(".label-value")
+				.transition()
+				.delay(delay)
+				.duration(duration)
+				.attr("y", function (d) { return chart.y(d.value) + 20; })
+			}
+
+			Reveal.addEventListener("indices-macroeconomicos-state", function() {
+				var graphs = [gdp, inflation, government, exchange];
+
+				for (var i = 0; i < graphs.length; i++) {
+					resetChart(graphs[i]);
+					animateChart(graphs[i], 800, 1900);
+				}
+			});
 		});
-
 		function mergeData (data) {
 			var data_ = [];
 

@@ -324,12 +324,8 @@ function UlnarisD3 () {
 
 		// Linea
 		var lineFunc = d3.svg.line()
-		.x(function (d) {
-			return x(d.label);
-		})
-		.y(function (d) {
-			return y(d.value);
-		});
+		.x(function (d) { return x(d.label); })
+		.y(function (d) { return y(d.value); });
 
 		// SVG
 		var svg = d3.select(options.container).append("svg")
@@ -341,7 +337,9 @@ function UlnarisD3 () {
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 		// Cargamos los datos
-		var linesData = options.linesData;
+		var linesData   = options.lines.data;
+		var linesStyles = options.lines.style;
+		var pointsStyles = options.lines.points;
 
 		// Dominio
 		x.domain(linesData[0].map(function (d) { return d.label }));
@@ -360,17 +358,39 @@ function UlnarisD3 () {
 		.attr("class", "y axis")
 		.call(yAxis);
 
-		var linesPath = [];
+		// Charts
+		var charts = [];
 		for (var i = 0; i < linesData.length; i++) {
-			linesPath.push(
-				svg.append("path")
-				.datum(linesData[i])
-				.attr("class", "line-chart")
-				.attr("d", lineFunc)
-			);
+			var chart = svg.append("g");
+
+			// Grafica
+			chart.append("path")
+			.datum(linesData[i])
+			.attr("class", "line-chart")
+			.attr("d", lineFunc)
+			.style(linesStyles[i])
+
+			// Valores
+			chart.selectAll(".label-value")
+			.data(linesData[i])
+			.enter().append("text")
+			.attr("class", "label-value")
+			.style(pointsStyles[i])
+			.attr("dy", "-1.4em")
+			.attr("x", function (d) { return x(d.label) + 10; })
+			.attr("y", function (d) { return y(d.value) + 20; })
+			.text(function (d) { return options.format(d.value); });
+
+			// Agregamos los números
+			charts.push(chart);
 		}
 
-		return linesPath;
+		return {
+			svg: svg,
+			x: x,
+			y: y,
+			args: options
+		}
 	};
 
 	function pieTop (d, rx, ry, ir) {
