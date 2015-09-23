@@ -1,11 +1,104 @@
 <!-- INDICES MACROECONOMICOS -->
-<section id="indices-macroeconomicos" data-autoslide="500">
+<section id="indices-macroeconomicos" data-autoslide="0">
 	<div class="step-container">
 
 		<!-- TITULO -->
-		<div class="fragment fade-in" data-autoslide="0">
-			<span class="ulnaris-title">Índices Macroeconómicos</span>
+		<div class="ulnaris-title">
+			<span>Índices Macroeconómicos</span>
 		</div>
 
+		<!-- CONTENIDO -->
+		<div class="ulnaris-content">
+
+			<!-- Grafica GDP -->
+			<div id="indices-macroeconomicos-gdp">
+			</div>
+
+			<!-- Grafica Inflation -->
+			<div id="indices-macroeconomicos-inflation">
+			</div>
+		</div>
 	</div>
 </div>
+
+<style type="text/css">
+
+	#indices-macroeconomicos .axis path,
+	#indices-macroeconomicos .axis line {
+		stroke: #FFF;
+		fill: none;
+		stroke-width: 3px;
+	}
+
+	#indices-macroeconomicos .gdpChart1 {
+	
+		stroke: #ff2600;
+		stroke-width: 4px;
+	}
+
+	#indices-macroeconomicos .gdpChart2 {
+		stroke: #0085cc;
+		stroke-width: 4px;
+	}
+
+	#indices-macroeconomicos .axis text {
+		stroke: none;
+		fill: #FFF;
+		font-size: 20px;
+	}
+
+</style>
+
+<script type="text/javascript">
+	(function () {
+		
+		// Cargamos los datos
+		d3.json("data/indicesmacro.json", function (error, root) {
+
+			// GRAFICA GDP
+			var gdpChart = ulnaris.D3.buildLineChart({
+				container   : "#indices-macroeconomicos-gdp",
+				width       : 1000,
+				height      : 500,
+				margin      : { top: 20, right: 40, bottom: 30, left: 40 },
+				rangeWidth  : 0.4,
+				linesData   : [mergeData(root.gdp.line1), mergeData(root.gdp.line2)]
+			});
+
+			gdpChart[0]
+			.attr("class", "gdpChart2");
+
+			gdpChart[1]
+			.attr("class", "gdpChart1");
+
+			// Grafica Inflation
+			var inflationChart = ulnaris.D3.buildLineChart({
+				container   : "#indices-macroeconomicos-inflation",
+				width       : 1000,
+				height      : 500,
+				margin      : { top: 20, right: 40, bottom: 30, left: 40 },
+				rangeWidth  : 0.4,
+				linesData   : [mergeData(root.inflation.line1), mergeData(root.inflation.line2)]
+			});
+
+			inflationChart[0]
+			.attr("class", "gdpChart2");
+
+			inflationChart[1]
+			.attr("class", "gdpChart1");
+		});
+
+		function mergeData (data) {
+			var data_ = [];
+
+			for (var i = 0; i < data.labels.length; i++) {
+				data_.push({
+					label: data.labels[i],
+					value: data.values[i]
+				});
+			}
+
+			return data_;
+		}
+	})();
+</script>
