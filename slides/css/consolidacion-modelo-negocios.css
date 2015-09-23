@@ -1,0 +1,26 @@
+#consolidacion-modelo-negocios .step-container {
+	background: url(../../img/consolidacion-modelo-negocios.png) 0 0 no-repeat;
+	-webkit-background-size: cover;
+}
+
+#consolidacion-modelo-negocios .step-container div {
+	position: absolute;
+}
+
+#listUno {
+	position: absolute;
+	width: 800px;
+	left: 100px;
+	top: 100px !important;
+}
+
+#listDos {
+	position: absolute;
+	width: 800px;
+	left: 1124px;
+	top: 100px !important;
+}
+
+#consolidacion-modelo-negocios .ulnaris-content {
+	font-size: 35px;
+}
