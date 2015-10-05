@@ -1,0 +1,4 @@
+#test04 .step-container {
+	background: url(../../img/test/04.jpg) 0 0 no-repeat;
+	-webkit-background-size: cover;
+}

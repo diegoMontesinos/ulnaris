@@ -38,6 +38,11 @@ var slidesSequence = [
 	"global-training-center",
 	"cloud",
 	"cloud-market-place",
+	"test01",
+	"test02",
+	"test03",
+	"test04",
+	/*
 	"movilidad",
 	"oportunidades-de-negocios",
 	"atencion",
@@ -45,6 +50,7 @@ var slidesSequence = [
 	"experiencia",
 	"la-mayor-experiencia",
 	"marketing",
+	*/
 	"end",
 	"outro-video"
 ];
@@ -56,7 +62,7 @@ function main (debug) {
 	ulnaris.init({
 		slides: slidesSequence,
 		myo: false,
-		debug: true,
+		debug: false,
 		onError: function (error) {
 			console.log(error);
 		}
