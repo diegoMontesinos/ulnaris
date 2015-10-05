@@ -37,6 +37,7 @@ var slidesSequence = [
 	"seguridad-fisica",
 	"global-training-center",
 	"cloud",
+	"crecimiento-negocios-tic",
 	"cloud-market-place",
 	"test01",
 	"test02",

@@ -3,10 +3,174 @@
 	<div class="step-container">
 
 		<!-- TITULO -->
-		<div class="ulnaris-title" style="top: 0px;">
+		<div class="ulnaris-title" style="top: 0px; font-size: 56px !important;">
 			<span>Crecimiento de los negocios en el mercado de servicios TIC</span>
 		</div>
 
-		
+		<!-- CONTENIDO -->
+		<div class="ulnaris-content">
+
+			<!-- LABELS -->
+			<div style="position: absolute; top: 14px; left: 14px; font-size: 33px; width: 370px;">
+				<div class="vertical-label"><span>Servicios TIC y nube</span></div>
+				<div class="vertical-label"><span>Proveedores de telecom</span></div>
+				<div class="vertical-label"><span>Proveedores de servicios</span></div>
+				<div class="vertical-label"><span>Fabricantes</span></div>
+				<div class="vertical-label"><span>Canales</span></div>
+			</div>
+
+			<!-- PRIMERA GRAFICA -->
+			<div id="crecimiento-ti-aportacion" style="position: absolute; width: 500px; left: 380px; top: -35px;">
+				<div style="position: absolute; font-size: 28px; text-align: center; left: 82px;">
+					<span>Aportación al crecimiento<br>1S15</span>
+				</div>
+			</div>
+
+			<!-- COLUMNA -->
+			<div style="width: 151px; position: absolute; left: 904px; top: -35px;">
+				<div style="position: absolute; font-size: 28px; text-align: center; left: 0px;">
+					<span>Crecimiento<br>1S15</span>
+				</div>
+				<div class="crecimiento-label" style="margin-top: 109px;"><span>11.9%</span></div>
+				<div class="crecimiento-label"><span>11.4%</span></div>
+				<div class="crecimiento-label"><span>14.4%</span></div>
+				<div class="crecimiento-label"><span>5.8%</span></div>
+				<div class="crecimiento-label"><span>17.1%</span></div>
+			</div>
+
+			<!-- SEGUNDA GRAFICA -->
+			<div id="crecimiento-ti-aportacion-s" style="position: absolute; width: 848px; left: 1170px; top: 0px;">
+			</div>
+		</div>
 	</div>
 </section>
+
+<style type="text/css">
+	#crecimiento-negocios-tic .ulnaris-content .axis line,
+	#crecimiento-negocios-tic .ulnaris-content .axis path {
+		stroke: #FFF;
+		fill: none;
+		stroke-weight: 5px;
+	}
+
+	#crecimiento-negocios-tic .ulnaris-content .y.axis text {
+		display: none;
+	}
+
+	#crecimiento-negocios-tic .text-bar {
+		fill: #FFF;
+		stroke: none;
+		font-size: 24px;
+	}
+
+	#crecimiento-ti-aportacion svg {
+		position: absolute;
+		top: 55px;
+		left: 10px;
+	}
+
+	#crecimiento-negocios-tic .ulnaris-content .vertical-label {
+		margin-top: 62px;
+	}
+
+	#crecimiento-negocios-tic .ulnaris-content .crecimiento-label {
+		margin-top: 70px;
+		font-size: 28px;
+		text-align: center;
+	}
+
+	#crecimiento-ti-aportacion-s .axis text {
+		display: block;
+		fill: #FFF;
+		stroke: none;
+		font-size: 18px;
+	}
+</style>
+
+<script type="text/javascript">
+	(function () {
+		var callbacks = [];
+		d3.json("data/crecimientoNegocios.json", function (error, root) {
+			ulnaris.D3.buildVerticalBar({
+				container: "#crecimiento-ti-aportacion",
+				width: 450,
+				height: 540,
+				margin: { top: 20, right: 60, bottom: 30, left: 40 },
+				data: root.data,
+				barHeight: 0.1,
+				colors: d3.scale.category10()
+			});
+
+			callbacks.push(function () {
+
+			});
+		});
+
+		ulnaris.D3.buildStackedBar({
+			container   : "#crecimiento-ti-aportacion-s",
+			width       : 700,
+			height      : 500,
+			margin      : { top: 20, right: 40, bottom: 30, left: 10 },
+			columnWidth : 0.3,
+			colors      : d3.scale.category10(),
+			jsonPath    : "data/crecimientoNegocios2.json",
+			onload      : function (svg, x, y, color) {
+
+				// Quitamos el eje
+				svg.selectAll(".axis.y")
+				.style("display", "none");
+
+				callbacks.push(function () {
+					var stacked = svg.selectAll(".stackedValue rect");
+					var stackedLabel = svg.selectAll(".stackedLabel text");
+
+					stacked
+					.attr("height", function (d) {
+						if(d.y1) { return 0; } else { return 18; }
+					})
+					.attr("y", function (d) {
+						if(d.y1) { return 450; }
+					});
+
+					stackedLabel
+					.attr("y", function (d) { return 350; })
+
+					setTimeout(function () {
+						// Animate
+						var delay = 100, duration = 3000;
+
+						stacked
+						.transition()
+						.delay(delay)
+						.duration(duration)
+						.attr("y", function (d) {
+							if(d.y1) { return y(d.y1); }
+						})
+						.attr("height", function (d) {
+							if(d.y1) { return y(d.y0) - y(d.y1); } else { return 18; }
+						});
+
+						stackedLabel
+						.transition()
+						.delay(delay)
+						.duration(duration)
+						.attr("y", function (d) {
+							var height = y(d.y0) - y(d.y1)
+							return y(d.y1) + (height * 0.65);
+						});
+
+						setTimeout(function () {
+							$(".total-qty").fadeIn(800);
+						}, delay + duration);
+					}, 100);
+				});
+			}
+		});
+
+		Reveal.addEventListener("crecimiento-negocios-tic-state", function() {
+			for (var i = 0; i < callbacks.length; i++) {
+				callbacks[i]();
+			};
+		});
+	})();
+</script>

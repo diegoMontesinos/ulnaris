@@ -1,6 +1,11 @@
 <!-- INDICES MACROECONOMICOS -->
-<section id="indices-macroeconomicos" class="ulnaris-legals-blue" data-autoslide="0" data-state="indices-macroeconomicos-state">
+<section id="indices-macroeconomicos" class="ulnaris-legals-blue" data-autoslide="500" data-state="indices-macroeconomicos-state">
 	<div class="step-container">
+
+		<!-- TITULO -->
+		<div class="ulnaris-title" style="top: 0px; font-size: 45px;">
+			<span>Índices Macroeconómicos</span>
+		</div>
 
 		<!-- CONTENIDO -->
 		<div class="ulnaris-content">
@@ -23,6 +28,45 @@
 			<!-- Exchange Rate -->
 			<div id="indices-macroeconomicos-exchange" style="left: 810px; top: 300px;">
 				<div><span>Exchange Rate</span></div>
+			</div>
+
+			<!-- Infor -->
+			<div style="width: 545px; font-size: 26px; left: 1460px;">
+				<ul class="ulnaris-list">
+					<li class="fragment fade-in" data-autoslide="300"><span>
+						Se espera un crecimiento del anual del 2.30% y para 2016 del 3.00%.
+					</span></li>
+					<li class="fragment fade-in" data-autoslide="300"><span>
+						Pronóstico de inflación se situó en el 2.86%.
+					</span></li>
+					<li class="fragment fade-in" data-autoslide="300"><span>
+						Se espera un tipo de cambio en 16.35 pesos por dólar.
+					</span></li>
+					<li class="fragment fade-in" data-autoslide="300"><span>
+						El crecimiento promedio en el gasto gubernamental de julio 2015 fue del 9.00%.
+					</span></li>
+				</ul>
+
+				<div class="fragment fade-in" data-autoslide="300" style="margin-top: 40px;">
+					<span>Palpable efecto dual de la depreciación:</span>
+				</div>
+				<ul class="ulnaris-list">
+					<li class="fragment fade-in" data-autoslide="300"><span>
+						Encareció algunos productos y servicios TIC.
+					</span></li>
+					<li class="fragment fade-in" data-autoslide="300"><span>
+						Mejoró las ventas TIC, en algunos casos hasta el 20%.
+					</span></li>
+					<li class="fragment fade-in" data-autoslide="0"><span>
+						En casi una cuarta parte no ha tenido repercusión.
+					</span></li>
+				</ul>
+			</div>
+
+			<!-- FUENTE -->
+			<div style="top: 528px; left: 1656px; font-size: 21px; width: 506px;">
+				<span style="font-weight: bold;">Fuente:</span>
+				<span>SEO. 2015: Banamex y Banxico</span>
 			</div>
 		</div>
 	</div>
@@ -55,6 +99,10 @@
 		stroke: none;
 		fill: #FFF;
 		font-size: 16px;
+	}
+
+	#indices-macroeconomicos .ulnaris-list li:before {
+		font-size: 12px !important;
 	}
 </style>
 
@@ -198,7 +246,7 @@
 
 				for (var i = 0; i < graphs.length; i++) {
 					resetChart(graphs[i]);
-					animateChart(graphs[i], 800, 1900);
+					animateChart(graphs[i], 1000, 1900);
 				}
 			});
 		});

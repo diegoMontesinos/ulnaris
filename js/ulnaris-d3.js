@@ -393,6 +393,72 @@ function UlnarisD3 () {
 		}
 	};
 
+	this.buildVerticalBar = function (options) {
+
+		// Dimensiones
+		var margin = options.margin;
+		var width  = options.width - margin.left - margin.right;
+		var height = options.height - margin.top - margin.bottom;
+
+		// Datos
+		var data   = options.data;
+		var values = data.map(function (d) { return parseFloat(d.value); });
+		var names  = data.map(function (d) { return d.name; });
+
+		// Escalas
+		var x = d3.scale.linear()
+		.range([15, width])
+		.domain([ d3.min(values), d3.max(values) ]);
+
+		var y = d3.scale.ordinal()
+		.rangeRoundBands([0, height], options.barHeight)
+		.domain(names);
+
+		// Eje
+		var yAxis = d3.svg.axis()
+		.scale(y)
+		.orient("left");
+
+		// SVG
+		var svg = d3.select(options.container)
+		.append("svg")
+		.attr("width", width + margin.left + margin.right)
+		.attr("height", height + margin.top + margin.bottom)
+		.append("g")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+		// Eje
+		svg.append("g")
+		.attr("class", "axis")
+		.attr("transform", "translate(" + x(0) + ",0)")
+		.call(yAxis);
+
+		// Agregamos las barras
+		var bar = svg.selectAll(".bar")
+		.data(data)
+		.enter().append("rect")
+		.attr("class", "bar")
+		.attr("x", function (d) { return x(0) + 4; })
+		.attr("y", function (d) { return y(d.name); })
+		.attr("width", function (d) { return x(d.value); })
+		.attr("height", y.rangeBand())
+		.style("fill", function (d) { return options.colors(d.name); });
+
+		// Texto
+		var text = svg.selectAll(".text-bar")
+		.data(data)
+		.enter().append("text")
+		.attr("class", "text-bar")
+		.attr("dy", "0.9em")
+		.attr("y", function (d) { return y(d.name) + (y.rangeBand() * 0.3); })
+		.attr("x", function (d) { return x(d.value) + 8; })
+		.text(function (d) {
+			return d.value;
+		});
+		
+		return svg;
+	};
+
 	function pieTop (d, rx, ry, ir) {
 		if(d.endAngle - d.startAngle == 0 ) return "M 0 0";
 		var sx = rx*Math.cos(d.startAngle),
